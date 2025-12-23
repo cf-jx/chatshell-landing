@@ -89,7 +89,22 @@ const translations = {
         terms_p6: '我们保留随时修改本条款的权利。重大变更将通过网站公告通知。',
         terms_h7: '7. 联系方式',
         terms_p7: '如有任何问题，请联系：',
-        lang_btn: 'En'
+        lang_btn: 'En',
+
+        // FAQ & Feedback
+        faq_title: '常见问题',
+        faq_1_q: '数据存储在哪里？',
+        faq_1_a: '所有对话数据仅保存在您的本地浏览器中。我们无法访问、查看或存储您的任何数据。',
+        faq_2_q: '如何激活付费版本？',
+        faq_2_a: '购买后您将收到一个 License Key。在插件的“账户”页面输入该 Key 即可激活。',
+        faq_3_q: '支持哪些浏览器？',
+        faq_3_a: '支持所有基于 Chromium 内核的浏览器，如 Chrome, Edge, Brave, Arc 等。',
+
+        feedback_title: '问题反馈',
+        feedback_desc: '遇到问题或有功能建议？欢迎随时联系我们。我们会认真阅读每一条反馈。',
+        feedback_email_label: '发送邮件至：',
+        feedback_action_email: '发送邮件',
+        feedback_action_issue: '提交 GitHub Issue'
     },
     'en': {
         nav_features: 'Features',
@@ -176,9 +191,29 @@ const translations = {
         terms_p6: 'We reserve the right to modify these terms at any time. Significant changes will be announced on the website.',
         terms_h7: '7. Contact',
         terms_p7: 'If you have any questions, please contact:',
-        lang_btn: '中'
+        lang_btn: '中',
+
+        // FAQ & Feedback
+        faq_title: 'FAQ',
+        faq_1_q: 'Where is my data stored?',
+        faq_1_a: 'All conversation data is saved only in your local browser. We cannot access, view, or store any of your data.',
+        faq_2_q: 'How to activate Pro version?',
+        faq_2_a: 'You will receive a License Key after purchase. Enter it in the "Account" page of the extension to activate.',
+        faq_3_q: 'Which browsers are supported?',
+        faq_3_a: 'All Chromium-based browsers are supported, such as Chrome, Edge, Brave, Arc, etc.',
+
+        feedback_title: 'Feedback',
+        feedback_desc: 'Have questions or suggestions? Feel free to contact us anytime.',
+        feedback_email_label: 'Email us at:',
+        feedback_action_email: 'Send Email',
+        feedback_action_issue: 'Submit Issue'
     }
 };
+
+// ... existing code ...
+
+// Initialize
+
 
 let currentLang = localStorage.getItem('chatshell-lang') || 'zh-CN';
 
@@ -189,9 +224,20 @@ document.addEventListener('DOMContentLoaded', () => {
         initScrollEffects();
         initIntersectionObserver();
         initDraggableWindow();
+        initFaqAccordion();
     }
     initSmoothScroll();
 });
+
+function initFaqAccordion() {
+    const faqItems = document.querySelectorAll('.faq-question');
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+}
 
 // ========================================
 // Language Switching
