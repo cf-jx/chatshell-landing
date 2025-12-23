@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatShell · 拾贝</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="ChatShell - A powerful, local, and private ChatGPT export tool."
+    />
+  </head>
+
+  <body>
+    <nav class="glass-nav">
+      <div class="nav-content">
+        <a href="#" class="logo-container">
+          <img src="assets/logo.png" alt="ChatShell Logo" class="logo" />
+          <span class="logo-text"
+            >ChatShell<span class="cn-text">拾贝</span></span
+          >
+        </a>
+
+        <div class="nav-links">
+          <a href="#features" data-i18n="nav_features">功能</a>
+          <a href="#pricing" data-i18n="nav_pricing">定价</a>
+          <a href="#download" data-i18n="nav_download">下载</a>
+          <button id="lang-toggle" class="lang-btn">En</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <p class="hero-tag">ChatGPT Export Tool</p>
+        <h1 data-i18n="hero_title">优雅地保存每一段对话</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          本地运行，隐私优先。<br />将 ChatGPT 对话导出为 PDF、Markdown、TXT 或
+          JSON。
+        </p>
+
+        <div class="cta-group">
+          <a href="#pricing" class="btn btn-primary" data-i18n="btn_get_started">
+            <span>开始使用</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- CSS Mockup: Chat Interface + Export Panel -->
+        <div class="hero-visual mockup-container">
+          <div class="mockup-window">
+            <div class="window-header">
+              <div class="window-controls">
+                <span class="control red"></span>
+                <span class="control yellow"></span>
+                <span class="control green"></span>
+              </div>
+              <span class="window-title">ChatGPT</span>
+            </div>
+            <div class="window-body">
+              <!-- Chat Area -->
+              <div class="chat-area">
+                <div class="message user-message">
+                  <div class="avatar user-avatar"></div>
+                  <div class="bubble user-bubble">
+                    <div class="line short"></div>
+                    <div class="line medium"></div>
+                  </div>
+                </div>
+                <div class="message ai-message">
+                  <div class="avatar ai-avatar"></div>
+                  <div class="bubble ai-bubble">
+                    <div class="line long"></div>
+                    <div class="line long"></div>
+                    <div class="line medium"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Floating Export Panel -->
+              <div class="chatshell-panel">
+                <div class="panel-header">
+                  <img src="assets/logo.png" class="panel-logo" alt="" />
+                  <span class="panel-title">导出对话</span>
+                </div>
+                <div class="panel-actions">
+                  <div class="action-btn">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      />
+                      <polyline points="14 2 14 8 20 8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                    </svg>
+                    <span>PDF</span>
+                  </div>
+                  <div class="action-btn">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+                      />
+                      <polyline points="14 2 14 8 20 8" />
+                    </svg>
+                    <span>Markdown</span>
+                  </div>
+                  <div class="action-btn">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path d="M16 18l2-2v-3" />
+                      <path d="M8 18l-2-2v-3" />
+                      <path d="M12 10v8" />
+                      <rect x="4" y="4" width="16" height="6" rx="1" />
+                    </svg>
+                    <span>JSON</span>
+                  </div>
+                </div>
+                <div class="export-btn">开始导出 →</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <div class="section-header">
+          <p class="section-tag">Features</p>
+          <h2 class="section-title">为什么选择 ChatShell</h2>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3 data-i18n="feature_1_title">多格式导出</h3>
+            <p data-i18n="feature_1_desc">
+              支持 PDF、Markdown、JSON 等格式。批量处理，智能识别附件。
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <h3 data-i18n="feature_2_title">本地运行</h3>
+            <p data-i18n="feature_2_desc">
+              无需后台服务，完全在浏览器本地运行。无网络依赖，离线可用。
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <h3 data-i18n="feature_3_title">隐私优先</h3>
+            <p data-i18n="feature_3_desc">
+              所有数据仅在本地处理，不收集、不上传任何信息。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="pricing">
+        <div class="section-header">
+          <p class="section-tag">Pricing</p>
+          <h2 class="section-title" data-i18n="pricing_title">选择适合你的版本</h2>
+        </div>
+        
+        <div class="pricing-grid">
+          <!-- Free Tier -->
+          <div class="pricing-card">
+            <h3 class="pricing-name" data-i18n="pricing_free">免费版</h3>
+            <div class="pricing-price">
+              <span class="price-amount">¥0</span>
+            </div>
+            <ul class="pricing-features">
+              <li data-i18n="pricing_free_1">PDF 导出 3次/月</li>
+              <li data-i18n="pricing_free_2">其他格式 5次/月</li>
+              <li data-i18n="pricing_free_3">带水印</li>
+            </ul>
+            <a href="#download" class="btn btn-secondary" data-i18n="pricing_free_btn">免费下载</a>
+          </div>
+          
+          <!-- Standard Tier -->
+          <div class="pricing-card featured">
+            <span class="pricing-badge" data-i18n="pricing_popular">推荐</span>
+            <h3 class="pricing-name" data-i18n="pricing_standard">标准版</h3>
+            <div class="pricing-price">
+              <span class="price-amount">¥89</span>
+              <span class="price-period" data-i18n="pricing_once">一次性</span>
+            </div>
+            <ul class="pricing-features">
+              <li data-i18n="pricing_std_1">✓ 无限导出</li>
+              <li data-i18n="pricing_std_2">✓ 无水印</li>
+              <li data-i18n="pricing_std_3">✓ 所有格式</li>
+            </ul>
+            <a href="#" id="buy-standard" class="btn btn-primary" data-i18n="pricing_buy">立即购买</a>
+          </div>
+          
+          <!-- Pro Tier -->
+          <div class="pricing-card">
+            <h3 class="pricing-name" data-i18n="pricing_pro">专业版</h3>
+            <div class="pricing-price">
+              <span class="price-amount">¥279</span>
+              <span class="price-period" data-i18n="pricing_once">一次性</span>
+            </div>
+            <ul class="pricing-features">
+              <li data-i18n="pricing_pro_1">✓ 标准版全部功能</li>
+              <li data-i18n="pricing_pro_2">✓ 批量导出</li>
+              <li data-i18n="pricing_pro_3">✓ 附件下载</li>
+            </ul>
+            <a href="#" id="buy-pro" class="btn btn-primary" data-i18n="pricing_buy">立即购买</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="download-section">
+        <div class="download-content">
+          <p class="section-tag">Download</p>
+          <h2 data-i18n="download_title">开始使用</h2>
+          <p class="download-desc" data-i18n="download_desc">
+            从 GitHub 获取最新版本，按说明安装即可。
+          </p>
+          <a
+            href="https://github.com/cf-jx/chatgpt-exporter-pro/releases/latest"
+            target="_blank"
+            class="btn btn-primary"
+            data-i18n="download_action"
+          >
+            <span>前往 GitHub 下载</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-left">
+          <span class="copyright">© 2025 ChatShell. All rights reserved.</span>
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html" data-i18n="nav_privacy">隐私政策</a>
+          <a href="terms.html" data-i18n="nav_terms">服务条款</a>
+          <a href="mailto:scf20230219@gmail.com">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
