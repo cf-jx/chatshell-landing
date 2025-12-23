@@ -25,6 +25,9 @@ const translations = {
         pricing_pro: '专业版',
         pricing_once: '一次性',
         pricing_popular: '推荐',
+        pricing_free_price: '¥0',
+        pricing_std_price: '¥89',
+        pricing_pro_price: '¥279',
         pricing_free_1: 'PDF 导出 3次/月',
         pricing_free_2: '其他格式 5次/月',
         pricing_free_3: '带水印',
@@ -108,6 +111,9 @@ const translations = {
         pricing_pro: 'Pro',
         pricing_once: 'one-time',
         pricing_popular: 'Popular',
+        pricing_free_price: '$0',
+        pricing_std_price: '$12.4',
+        pricing_pro_price: '$38.8',
         pricing_free_1: '3 PDF exports/month',
         pricing_free_2: '5 other exports/month',
         pricing_free_3: 'With watermark',
@@ -191,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initLanguageSwitch() {
     const langBtn = document.getElementById('lang-toggle');
     if (!langBtn) return;
-    
+
     // Set initial button text based on saved language
     langBtn.textContent = translations[currentLang].lang_btn;
     document.documentElement.lang = currentLang;
@@ -208,7 +214,7 @@ function initLanguageSwitch() {
 
 function updateLanguage() {
     const elements = document.querySelectorAll('[data-i18n]');
-    
+
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[currentLang][key]) {
@@ -235,26 +241,26 @@ function updateLanguage() {
 function initScrollEffects() {
     const nav = document.querySelector('.glass-nav');
     let ticking = false;
-    
+
     function updateNav() {
         const scrollY = window.scrollY;
-        
+
         if (scrollY > 20) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
-        
+
         ticking = false;
     }
-    
+
     window.addEventListener('scroll', () => {
         if (!ticking) {
             requestAnimationFrame(updateNav);
             ticking = true;
         }
     }, { passive: true });
-    
+
     updateNav();
 }
 
@@ -266,7 +272,7 @@ function initIntersectionObserver() {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -274,7 +280,7 @@ function initIntersectionObserver() {
             }
         });
     }, observerOptions);
-    
+
     const animatedElements = document.querySelectorAll('.feature-card, .hero h1, .hero p, .hero .cta-group, .mockup-window');
     animatedElements.forEach(el => {
         el.classList.add('animate-on-scroll');
@@ -287,19 +293,19 @@ function initIntersectionObserver() {
 // ========================================
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            
+
             if (targetId === '#') return;
-            
+
             e.preventDefault();
-            
+
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 const navHeight = document.querySelector('.glass-nav').offsetHeight;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navHeight - 20;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -315,7 +321,7 @@ function initSmoothScroll() {
 function initDraggableWindow() {
     const mockupWindow = document.querySelector('.mockup-window');
     const dragHandle = document.querySelector('.dot.yellow');
-    
+
     if (!mockupWindow || !dragHandle) return;
 
     let isDragging = false;
@@ -345,17 +351,17 @@ function initDraggableWindow() {
     dragHandle.addEventListener('mousedown', (e) => {
         isDragging = true;
         dragHandle.style.cursor = 'grabbing';
-        
+
         // Get current mouse position
         startX = e.clientX;
         startY = e.clientY;
-        
+
         // Get current transform values
         currentTranslate = getTranslateValues(mockupWindow);
-        
+
         // Disable transition during drag for smoothness
         mockupWindow.style.transition = 'none';
-        
+
         e.preventDefault(); // Prevent text selection
     });
 
@@ -375,7 +381,7 @@ function initDraggableWindow() {
         if (!isDragging) return;
         isDragging = false;
         dragHandle.style.cursor = 'grab';
-        
+
         // Re-enable transition for other effects if needed, 
         // but keep it off for transform to avoid springing back if we had a reset logic
         // mockupWindow.style.transition = ''; 
