@@ -34,28 +34,28 @@
             <h2 data-i18n="privacy_h1">1. 概述</h2>
             <p data-i18n="privacy_p1">ChatShell（"拾贝"）是一款浏览器扩展，帮助用户导出 ChatGPT 对话。我们重视您的隐私，本政策说明我们如何处理您的数据。</p>
 
-            <h2 data-i18n="privacy_h2">2. 数据收集</h2>
+            <h2 data-i18n="privacy_h2">2. 数据访问与处理</h2>
             <p><strong data-i18n="privacy_p2">我们不收集任何个人数据。</strong></p>
             <ul>
-                <li data-i18n="privacy_li1">所有数据处理均在您的浏览器本地完成</li>
-                <li data-i18n="privacy_li2">我们不上传、存储或访问您的对话内容</li>
-                <li data-i18n="privacy_li3">我们不使用任何分析或追踪工具</li>
+                <li data-i18n="privacy_li1">导出内容在您的浏览器本地生成，仅在您主动触发导出时运行</li>
+                <li data-i18n="privacy_li2">对话内容不会发送到开发者自有服务器；网络请求仅用于与 ChatGPT 官方站点通信以完成导出</li>
+                <li data-i18n="privacy_li3">我们不使用任何分析、追踪或广告工具</li>
             </ul>
 
             <h2 data-i18n="privacy_h3">3. 本地存储</h2>
-            <p data-i18n="privacy_p3">扩展使用浏览器的本地存储功能保存：</p>
+            <p data-i18n="privacy_p3">扩展使用浏览器存储功能保存：</p>
             <ul>
-                <li data-i18n="privacy_li4">用户偏好设置（如主题、时间戳选项）</li>
-                <li data-i18n="privacy_li5">License Key（如已激活付费版本）</li>
-                <li data-i18n="privacy_li6">导出次数统计（仅用于免费版限制）</li>
+                <li data-i18n="privacy_li4">用户偏好设置（如主题、时间戳、水印等）</li>
+                <li data-i18n="privacy_li5">License Key（存储在 chrome.storage.sync，用于跨设备同步）</li>
+                <li data-i18n="privacy_li6">导出次数统计（存储在 chrome.storage.local，仅用于免费版限制）</li>
             </ul>
-            <p data-i18n="privacy_p3b">这些数据仅存储在您的设备上，我们无法访问。</p>
+            <p data-i18n="privacy_p3b">我们不会存储您的对话内容。以上数据仅存储在您的设备/浏览器中，我们无法访问。</p>
 
             <h2 data-i18n="privacy_h4">4. 第三方服务</h2>
-            <p data-i18n="privacy_p4">付费版本通过 Creem 处理支付。支付过程由 Creem 处理，请参阅其隐私政策了解详情。我们仅接收 License Key，不接收您的支付信息。</p>
+            <p data-i18n="privacy_p4">付费版本通过 Creem 处理支付。支付过程由 Creem 完成，我们不会接触您的支付信息；您会收到 License Key 用于激活。</p>
 
-            <h2 data-i18n="privacy_h5">5. 数据安全</h2>
-            <p data-i18n="privacy_p5">由于所有数据均在本地处理，您的对话内容始终保留在您的设备上，不会通过网络传输。</p>
+            <h2 data-i18n="privacy_h5">5. 网络请求与安全</h2>
+            <p data-i18n="privacy_p5">导出时扩展可能会向 chatgpt.com / chat.openai.com 请求对话数据；若启用附件导出，会从 *.oaiusercontent.com 下载附件。除此之外，扩展不会向开发者服务器传输对话内容。</p>
 
             <h2 data-i18n="privacy_h6">6. 联系我们</h2>
             <p><span data-i18n="privacy_p6">如有任何隐私相关问题，请联系：</span><a href="mailto:scf20230219@gmail.com">scf20230219@gmail.com</a></p>
