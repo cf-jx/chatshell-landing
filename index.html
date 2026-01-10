@@ -49,7 +49,7 @@
         </a>
       </div>
 
-      <!-- CSS Mockup: Chat Interface + Export Panel -->
+      <!-- CSS Mockup: Chat Interface + Floating Export Panel -->
       <div class="hero-visual mockup-container">
         <div class="mockup-window">
           <div class="window-header">
@@ -65,14 +65,14 @@
             <div class="chat-area">
               <div class="message user-message">
                 <div class="avatar user-avatar"></div>
-                <div class="bubble user-bubble">
+                <div class="bubble">
                   <div class="line short"></div>
                   <div class="line medium"></div>
                 </div>
               </div>
               <div class="message ai-message">
                 <div class="avatar ai-avatar"></div>
-                <div class="bubble ai-bubble">
+                <div class="bubble">
                   <div class="line long"></div>
                   <div class="line long"></div>
                   <div class="line medium"></div>
@@ -83,36 +83,15 @@
             <div class="chatshell-panel">
               <div class="panel-header">
                 <img src="assets/logo.png" class="panel-logo" alt="" />
-                <span class="panel-title">导出对话</span>
+                <span class="panel-title">ChatShell</span>
               </div>
-              <div class="panel-actions">
-                <div class="action-btn">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                  </svg>
-                  <span>PDF</span>
-                </div>
-                <div class="action-btn">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                    <polyline points="14 2 14 8 20 8" />
-                  </svg>
-                  <span>Markdown</span>
-                </div>
-                <div class="action-btn">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M16 18l2-2v-3" />
-                    <path d="M8 18l-2-2v-3" />
-                    <path d="M12 10v8" />
-                    <rect x="4" y="4" width="16" height="6" rx="1" />
-                  </svg>
-                  <span>JSON</span>
-                </div>
+              <div class="panel-formats">
+                <div class="panel-format-btn active">PDF</div>
+                <div class="panel-format-btn">MD</div>
+                <div class="panel-format-btn">DOCX</div>
+                <div class="panel-format-btn">JSON</div>
               </div>
-              <div class="export-btn">开始导出 →</div>
+              <div class="export-btn">Export →</div>
             </div>
           </div>
         </div>
@@ -222,24 +201,24 @@
 
       <div class="showcase-grid">
         <div class="showcase-card">
-          <div class="media-placeholder">
-            <span data-i18n="showcase_shot_1">截图占位：浮动按钮（可拖拽 / 贴边自动隐藏）</span>
+          <div class="showcase-image">
+            <img src="assets/screenshots/floating-button.png" alt="Floating Button" />
           </div>
           <h3 data-i18n="showcase_1_title">浮动入口</h3>
           <p data-i18n="showcase_1_desc">随时一键呼出导出面板，减少打扰。</p>
         </div>
 
         <div class="showcase-card">
-          <div class="media-placeholder">
-            <span data-i18n="showcase_shot_2">截图占位：导出面板（格式 / 选中导出 / 偏好设置）</span>
+          <div class="showcase-image">
+            <img src="assets/screenshots/export-panel.png" alt="Export Panel" />
           </div>
           <h3 data-i18n="showcase_2_title">导出面板</h3>
           <p data-i18n="showcase_2_desc">选择格式与偏好，导出更干净、更可读。</p>
         </div>
 
         <div class="showcase-card">
-          <div class="media-placeholder">
-            <span data-i18n="showcase_shot_3">截图占位：导出结果（PDF / Markdown / DOCX）</span>
+          <div class="showcase-image">
+            <img src="assets/screenshots/export-result.png" alt="Export Result" />
           </div>
           <h3 data-i18n="showcase_3_title">导出结果</h3>
           <p data-i18n="showcase_3_desc">适合归档、分享与二次编辑。</p>
@@ -261,25 +240,26 @@
             <span class="price-amount" data-i18n="pricing_free_price">¥0</span>
           </div>
           <ul class="pricing-features">
-            <li data-i18n="pricing_free_1">PDF 导出 3次/月</li>
-            <li data-i18n="pricing_free_2">其他格式 5次/月</li>
-            <li data-i18n="pricing_free_3">带水印</li>
+            <li class="feature-yes">✓ PDF / MD / DOCX / JSON</li>
+            <li class="feature-limit">每月限 3-5 次</li>
+            <li class="feature-no">✗ 带水印</li>
+            <li class="feature-no">✗ 批量导出 & 团队空间</li>
           </ul>
           <a href="#download" class="btn btn-secondary" data-i18n="pricing_free_btn">免费下载</a>
         </div>
 
         <!-- Standard Tier -->
         <div class="pricing-card featured">
-          <span class="pricing-badge" data-i18n="pricing_popular">推荐</span>
           <h3 class="pricing-name" data-i18n="pricing_standard">标准版</h3>
           <div class="pricing-price">
             <span class="price-amount" data-i18n="pricing_std_price">¥89</span>
             <span class="price-period" data-i18n="pricing_once">一次性</span>
           </div>
           <ul class="pricing-features">
-            <li data-i18n="pricing_std_1">✓ 无限导出</li>
-            <li data-i18n="pricing_std_2">✓ 无水印</li>
-            <li data-i18n="pricing_std_3">✓ 所有格式</li>
+            <li class="feature-yes">✓ 无限导出 · 无水印</li>
+            <li class="feature-yes">✓ 时间戳 & 移除分隔线</li>
+            <li class="feature-no">✗ 批量导出 & 团队空间</li>
+            <li class="feature-no">✗ 附件下载</li>
           </ul>
           <a href="#" id="buy-standard" class="btn btn-primary" data-i18n="pricing_buy">立即购买</a>
         </div>
@@ -292,9 +272,10 @@
             <span class="price-period" data-i18n="pricing_once">一次性</span>
           </div>
           <ul class="pricing-features">
-            <li data-i18n="pricing_pro_1">✓ 标准版全部功能</li>
-            <li data-i18n="pricing_pro_2">✓ 批量导出</li>
-            <li data-i18n="pricing_pro_3">✓ 附件下载</li>
+            <li class="feature-yes">✓ 标准版全部功能</li>
+            <li class="feature-yes">✓ 批量导出 & 团队空间</li>
+            <li class="feature-yes">✓ 附件下载</li>
+            <li class="feature-spacer">&nbsp;</li>
           </ul>
           <a href="#" id="buy-pro" class="btn btn-primary" data-i18n="pricing_buy">立即购买</a>
         </div>
