@@ -64,7 +64,7 @@ const translations = {
         pricing_free_btn: '免费下载',
         download_title: '开始使用',
         download_desc: '从 GitHub 获取最新版本，按说明安装。Chrome Web Store 即将上架。',
-        download_meta: '当前版本：v4.0.1',
+        download_meta: '当前版本：v1.0.0.1',
         download_action: '下载最新版本',
         // Legal pages
         privacy_title: '隐私政策',
@@ -189,7 +189,7 @@ const translations = {
         pricing_free_btn: 'Download Free',
         download_title: 'Get Started',
         download_desc: 'Get the latest version from GitHub. Chrome Web Store coming soon.',
-        download_meta: 'Current version: v4.0.1',
+        download_meta: 'Current version: v1.0.0.1',
         download_action: 'Download Latest',
         // Legal pages
         privacy_title: 'Privacy Policy',
