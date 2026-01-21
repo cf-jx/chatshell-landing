@@ -11,7 +11,7 @@ const translations = {
         nav_privacy: '隐私政策',
         nav_terms: '服务条款',
         hero_title: '优雅地保存每一段对话',
-        hero_subtitle: '本地运行，隐私优先。<br>将 ChatGPT 对话导出为 PDF、Markdown、DOCX 等格式。',
+        hero_subtitle: '本地运行，隐私优先。<br>将 ChatGPT 对话导出为 PDF、Markdown、DOCX、HTML、JSON 等格式。',
         btn_get_started: '开始使用',
         feature_1_title: '多格式导出',
         feature_1_desc: '支持 PDF、Markdown、DOCX、HTML、JSON 等格式，导出更干净、更可读。',
@@ -25,8 +25,6 @@ const translations = {
         feature_5_desc: '一键导出多个对话至 HTML/MD/DOCX/JSON（Pro）。',
         feature_6_title: '贴边浮动入口',
         feature_6_desc: '可自由拖拽，贴边后自动隐藏一半，不挡阅读视线。',
-        feature_7_title: '附件下载',
-        feature_7_desc: '一键下载对话中的图片、文档等附件，打包为 ZIP（Pro）。',
         showcase_title: '界面预览',
         showcase_desc: '实际产品界面展示',
         showcase_shot_1: '截图占位：浮动按钮（可拖拽 / 贴边自动隐藏）',
@@ -60,13 +58,11 @@ const translations = {
         pricing_std_2: '✓ 时间戳 & 移除分隔线',
         pricing_std_3: '✓ 所有格式',
         pricing_std_nobatch: '✗ 批量导出 & 团队空间',
-        pricing_std_noattach: '✗ 附件下载',
         pricing_pro_1: '✓ 标准版全部功能',
         pricing_pro_2: '✓ 批量导出 & 团队空间',
-        pricing_pro_3: '✓ 附件下载',
-        pricing_pro_4: '✓ 定期报告提醒备份（即将上线）',
+        pricing_pro_3: '✓ 定期报告提醒备份（即将上线）',
         pricing_upgrade_title: '已有标准版？升级专业版',
-        pricing_upgrade_desc: '订阅专业版解锁批量导出与附件下载',
+        pricing_upgrade_desc: '订阅专业版解锁批量导出功能',
         pricing_upgrade_btn: '升级到专业版',
         pricing_buy: '立即订阅',
         pricing_free_btn: '免费下载',
@@ -148,7 +144,7 @@ const translations = {
         nav_privacy: 'Privacy Policy',
         nav_terms: 'Terms of Service',
         hero_title: 'Elegantly save every conversation',
-        hero_subtitle: 'Local-first, privacy-focused.<br>Export ChatGPT conversations to PDF, Markdown, DOCX, and more.',
+        hero_subtitle: 'Local-first, privacy-focused.<br>Export ChatGPT conversations to PDF, Markdown, DOCX, HTML, JSON, and more.',
         btn_get_started: 'Get Started',
         feature_1_title: 'Multi-format Export',
         feature_1_desc: 'Export to PDF, Markdown, DOCX, HTML, JSON, and more — clean and readable outputs.',
@@ -162,8 +158,6 @@ const translations = {
         feature_5_desc: 'Export multiple chats to HTML/MD/DOCX/JSON with one click (Pro).',
         feature_6_title: 'Dockable Floating Button',
         feature_6_desc: 'Drag freely, dock to the edge, and auto-hide half to stay out of the way.',
-        feature_7_title: 'Attachment Download',
-        feature_7_desc: 'Download images, documents and attachments from conversations as ZIP (Pro).',
         showcase_title: 'UI Preview',
         showcase_desc: 'Actual product interface',
         showcase_shot_1: 'Screenshot placeholder: Floating button (drag / edge hide)',
@@ -197,13 +191,11 @@ const translations = {
         pricing_std_2: '✓ Timestamps & Remove separators',
         pricing_std_3: '✓ All formats',
         pricing_std_nobatch: '✗ Batch export & Team space',
-        pricing_std_noattach: '✗ Attachment download',
         pricing_pro_1: '✓ All Standard features',
         pricing_pro_2: '✓ Batch export & Team space',
-        pricing_pro_3: '✓ Attachment download',
-        pricing_pro_4: '✓ Backup report reminders (coming soon)',
+        pricing_pro_3: '✓ Backup report reminders (coming soon)',
         pricing_upgrade_title: 'Already on Standard? Upgrade to Pro',
-        pricing_upgrade_desc: 'Subscribe to Pro to unlock batch export and attachments.',
+        pricing_upgrade_desc: 'Subscribe to Pro to unlock batch export.',
         pricing_upgrade_btn: 'Upgrade to Pro',
         pricing_buy: 'Subscribe',
         pricing_free_btn: 'Download Free',
@@ -377,7 +369,7 @@ function updateLanguage() {
         if (translations[currentLang][key]) {
             if (key === 'hero_title' || key === 'hero_subtitle') {
                 const value = String(translations[currentLang][key]);
-                const parts = value.split(/<br\\s*\\/?\\s*>/i);
+                const parts = value.split(/<br\s*\/?\s*>/i);
                 el.textContent = '';
                 parts.forEach((part, idx) => {
                     if (idx > 0) {

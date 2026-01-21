@@ -892,8 +892,16 @@ main {
 .pricing-yearly {
     text-align: center;
     font-size: var(--text-sm);
-    color: var(--color-text-secondary);
+    color: var(--color-primary);
+    text-decoration: underline;
     margin-bottom: var(--space-5);
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.pricing-yearly:hover {
+    opacity: 0.8;
 }
 
 .pricing-features {
