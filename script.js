@@ -289,10 +289,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initFaqAccordion() {
     const faqItems = document.querySelectorAll('.faq-question');
-    faqItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const parent = item.parentElement;
-            parent.classList.toggle('active');
+    faqItems.forEach((item, index) => {
+        const parent = item.parentElement;
+        if (!parent) return;
+        const answer = parent.querySelector('.faq-answer');
+
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        if (answer && !answer.id) {
+            answer.id = `faq-answer-${index + 1}`;
+        }
+        if (answer && answer.id) {
+            item.setAttribute('aria-controls', answer.id);
+        }
+
+        const updateState = () => {
+            const isActive = parent.classList.toggle('active');
+            item.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        };
+
+        item.setAttribute('aria-expanded', parent.classList.contains('active') ? 'true' : 'false');
+
+        item.addEventListener('click', updateState);
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                updateState();
+            }
         });
     });
 }
@@ -325,7 +348,15 @@ function updateLanguage() {
         const key = el.getAttribute('data-i18n');
         if (translations[currentLang][key]) {
             if (key === 'hero_title' || key === 'hero_subtitle') {
-                el.innerHTML = translations[currentLang][key];
+                const value = String(translations[currentLang][key]);
+                const parts = value.split(/<br\\s*\\/?\\s*>/i);
+                el.textContent = '';
+                parts.forEach((part, idx) => {
+                    if (idx > 0) {
+                        el.appendChild(document.createElement('br'));
+                    }
+                    el.appendChild(document.createTextNode(part));
+                });
             } else if (el.querySelector('span')) {
                 // For buttons with icons, only update the span text
                 el.querySelector('span').textContent = translations[currentLang][key];
