@@ -274,9 +274,24 @@ const translations = {
 
 
 let currentLang = localStorage.getItem('chatshell-lang') || 'zh-CN';
+const PRICE_BASE_USD = {
+    free: 0,
+    standard: 4,
+    pro: 8
+};
+const PRICE_YEARLY_USD = {
+    standard: 36,
+    pro: 72
+};
+const PRICE_CURRENCY = {
+    USD: '$',
+    CNY: '¥'
+};
+let exchangeRateCny = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitch();
+    initPricing();
     // Only init these on main page (check if elements exist)
     if (document.querySelector('.hero')) {
         initScrollEffects();
@@ -338,6 +353,7 @@ function initLanguageSwitch() {
         langBtn.textContent = translations[currentLang].lang_btn;
         updateLanguage();
         document.documentElement.lang = currentLang;
+        updatePricingUI();
     });
 }
 
@@ -369,6 +385,56 @@ function updateLanguage() {
     const cnText = document.querySelector('.cn-text');
     if (cnText) {
         cnText.style.display = currentLang === 'zh-CN' ? 'inline' : 'none';
+    }
+}
+
+async function initPricing() {
+    try {
+        const res = await fetch('https://api.frankfurter.dev/v1/latest?base=USD&symbols=CNY');
+        if (!res.ok) throw new Error('rate fetch failed');
+        const data = await res.json();
+        if (data && data.rates && typeof data.rates.CNY === 'number') {
+            exchangeRateCny = data.rates.CNY;
+        }
+    } catch (err) {
+        // keep fallback translation values if rate is unavailable
+        exchangeRateCny = null;
+    }
+    updatePricingUI();
+}
+
+function formatCurrency(amount, currency) {
+    const symbol = PRICE_CURRENCY[currency] || '';
+    const rounded = currency === 'CNY' ? Math.round(amount) : Math.round(amount);
+    return `${symbol}${rounded}`;
+}
+
+function updatePricingUI() {
+    const useCny = currentLang === 'zh-CN';
+    const currency = useCny ? 'CNY' : 'USD';
+    const rate = useCny ? exchangeRateCny : 1;
+    if (useCny && !rate) return;
+
+    const stdMonthly = PRICE_BASE_USD.standard * rate;
+    const proMonthly = PRICE_BASE_USD.pro * rate;
+    const stdYear = PRICE_YEARLY_USD.standard * rate;
+    const proYear = PRICE_YEARLY_USD.pro * rate;
+
+    const setText = (key, value) => {
+        const el = document.querySelector(`[data-i18n="${key}"]`);
+        if (el) el.textContent = value;
+    };
+
+    setText('pricing_free_price', formatCurrency(PRICE_BASE_USD.free, currency));
+    setText('pricing_std_price', formatCurrency(stdMonthly, currency));
+    setText('pricing_pro_price', formatCurrency(proMonthly, currency));
+
+    if (useCny) {
+        setText('pricing_std_year', `年付 ${formatCurrency(stdYear, currency)}（省 25%）`);
+        setText('pricing_pro_year', `年付 ${formatCurrency(proYear, currency)}（省 25%）`);
+    } else {
+        setText('pricing_std_year', `Annual ${formatCurrency(stdYear, currency)} (save 25%)`);
+        setText('pricing_pro_year', `Annual ${formatCurrency(proYear, currency)} (save 25%)`);
     }
 }
 
