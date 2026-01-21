@@ -17,8 +17,8 @@ const translations = {
         feature_1_desc: '支持 PDF、Markdown、DOCX、HTML、JSON 等格式，导出更干净、更可读。',
         feature_2_title: '本地运行',
         feature_2_desc: '无需后台服务，主要逻辑在浏览器本地完成。自动适配深色/浅色模式。',
-        feature_3_title: '隐私优先',
-        feature_3_desc: '不做追踪与广告；不把对话数据发送到开发者服务器。',
+        feature_3_title: '????',
+        feature_3_desc: '????????????????License ????????????????? Creem?',
         feature_4_title: '公式渲染',
         feature_4_desc: '完美支持 LaTeX 数学公式，导出后仍保持清晰可读。',
         feature_5_title: '批量导出',
@@ -72,33 +72,35 @@ const translations = {
         download_action: '下载最新版本',
         // Legal pages
         privacy_title: '隐私政策',
-        privacy_date: '最后更新：2026年1月',
-        privacy_h1: '1. 概述',
-        privacy_p1: 'ChatShell（"拾贝"）是一款浏览器扩展，帮助用户导出 ChatGPT 对话。我们重视您的隐私，本政策说明我们如何处理您的数据。',
-        privacy_h2: '2. 数据访问与处理',
-        privacy_p2: '我们不收集任何个人数据。',
-        privacy_li1: '导出内容在您的浏览器本地生成，仅在您主动触发导出时运行',
-        privacy_li2: '对话内容不会发送到开发者自有服务器；网络请求仅用于与 ChatGPT 官方站点通信以完成导出',
-        privacy_li3: '我们不使用任何分析、追踪或广告工具',
-        privacy_h3: '3. 本地存储',
-        privacy_p3: '扩展使用浏览器存储功能保存：',
-        privacy_li4: '用户偏好设置（如主题、时间戳、水印等）',
-        privacy_li5: 'License Key（存储在 chrome.storage.sync，用于跨设备同步）',
-        privacy_li6: '导出次数统计（存储在 chrome.storage.local，仅用于免费版限制）',
-        privacy_p3b: '我们不会存储您的对话内容。以上数据仅存储在您的设备/浏览器中，我们无法访问。',
-        privacy_h4: '4. 第三方服务',
-        privacy_p4: '订阅版本通过 Creem 处理支付。支付过程由 Creem 完成，我们不会接触您的支付信息；您会收到 License Key 用于激活。',
-        privacy_h5: '5. 网络请求与安全',
-        privacy_p5: '导出时扩展可能会向 chatgpt.com / chat.openai.com 请求对话数据；若启用附件导出，会从 *.oaiusercontent.com 下载附件。除此之外，扩展不会向开发者服务器传输对话内容。',
-        privacy_h6: '6. 联系我们',
-        privacy_p6: '如有任何隐私相关问题，请联系：',
+        privacy_date: '?????2026?1?',
+        privacy_h1: '1. ??',
+        privacy_p1: 'ChatShell ????????? ChatGPT ??????????????????????????????????',
+        privacy_h2: '2. ???????',
+        privacy_p2: '???????????????????????',
+        privacy_li1: '??????????????????????',
+        privacy_li2: '?????????????? ChatGPT ???????? ChatGPT API????????????????????',
+        privacy_li3: '????????????????',
+        privacy_h3: '3. ????',
+        privacy_p3: '????????????',
+        privacy_li4: '??????????????????',
+        privacy_li5: 'License Key ???????? chrome.storage.sync?',
+        privacy_li6: '????????? chrome.storage.local??????????',
+        privacy_p3b: '??????????????????????/?????',
+        privacy_h4: '4. ?????',
+        privacy_p4: 'License ???? Cloudflare Workers ? Creem ???????????????',
+        privacy_h5: '5. ???????',
+        privacy_p5: '?????? chatgpt.com / chat.openai.com???????? *.oaiusercontent.com?License ???????? License ???? Creem??????? HTTPS?',
+        privacy_h6: '6. Limited Use',
+        privacy_p6: '???? Google APIs ?????????? Chrome Web Store User Data Policy?? Limited Use ????',
+        privacy_h7: '7. ????',
+        privacy_p7: '??????????',
         terms_title: '服务条款',
         terms_date: '最后更新：2026年1月',
         terms_h1: '1. 服务概述',
-        terms_p1: 'ChatShell（"拾贝"）是一款浏览器扩展，允许用户将 ChatGPT 对话导出为多种格式。使用本服务即表示您同意以下条款。',
+        terms_p1: 'ChatShell ????? ChatGPT ????????????????????????',
         terms_h2: '2. 使用许可',
-        terms_li1: '免费版：可免费使用，有导出次数限制和水印',
-        terms_li2: '付费版：订阅期间解锁完整功能，可随时取消，订阅到期后恢复免费限制',
+        terms_li1: '??????????????',
+        terms_li2: '????????????????????',
         terms_h3: '3. 用户责任',
         terms_p3: '您同意：',
         terms_li3: '仅将本扩展用于合法目的',
@@ -111,11 +113,11 @@ const translations = {
         terms_li9: '我们不对因使用本扩展造成的任何损失负责',
         terms_li10: '本扩展与 OpenAI 或 ChatGPT 无关联',
         terms_h5: '5. 退款政策',
-        terms_p5: '订阅按月或按年计费，取消后在当前计费周期结束时降级。如需退款请参考 Creem 的退款政策。',
+        terms_p5: '??? Creem ?????? ChatShell ???????????? Creem ?????',
         terms_h6: '6. 条款变更',
-        terms_p6: '我们保留随时修改本条款的权利。重大变更将通过网站公告通知。',
+        terms_p6: '??????????????????????',
         terms_h7: '7. 联系方式',
-        terms_p7: '如有任何问题，请联系：',
+        terms_p7: '????????',
         lang_btn: 'En',
 
         // FAQ & Feedback
@@ -151,7 +153,7 @@ const translations = {
         feature_2_title: 'Runs Locally',
         feature_2_desc: 'No backend required. Core logic runs locally. Auto adapts to dark/light mode.',
         feature_3_title: 'Privacy First',
-        feature_3_desc: 'No tracking or ads. We don\'t send conversation data to developer-owned servers.',
+        feature_3_desc: 'No tracking or ads. Conversation content stays local; license checks send only license data to our server and Creem.',
         feature_4_title: 'Formula Rendering',
         feature_4_desc: 'Perfect LaTeX math formula support, exports remain clear and readable.',
         feature_5_title: 'Batch Export',
@@ -209,26 +211,28 @@ const translations = {
         privacy_h1: '1. Overview',
         privacy_p1: 'ChatShell is a browser extension that helps users export ChatGPT conversations. We value your privacy and this policy explains how we handle your data.',
         privacy_h2: '2. Data Access & Processing',
-        privacy_p2: 'We do not collect any personal data.',
-        privacy_li1: 'Exports are generated locally in your browser and only run when you initiate an export',
-        privacy_li2: 'Conversation data is not sent to any developer-owned server; network requests are only used to talk to official ChatGPT sites for exporting',
-        privacy_li3: 'No analytics, tracking, or advertising tools',
+        privacy_p2: 'We do not collect conversation content. Export runs only when you initiate it.',
+        privacy_li1: 'Exports are generated locally in your browser and only run when you initiate an export.',
+        privacy_li2: 'We capture ChatGPT access tokens to call ChatGPT APIs for export/attachments; tokens stay in memory and are never sent to developer servers.',
+        privacy_li3: 'No analytics, tracking, or advertising tools.',
         privacy_h3: '3. Local Storage',
         privacy_p3: 'The extension uses browser storage to save:',
         privacy_li4: 'User preferences (theme, timestamps, watermark, etc.)',
-        privacy_li5: 'License Key (stored in chrome.storage.sync for cross-device sync)',
+        privacy_li5: 'License Key and license status (stored in chrome.storage.sync)',
         privacy_li6: 'Usage counters (stored in chrome.storage.local, only for free plan limits)',
-        privacy_p3b: 'We do not store your conversation content. This data stays on your device/browser and we cannot access it.',
+        privacy_p3b: 'We do not store your conversation content. This data stays on your device/browser.',
         privacy_h4: '4. Third-party Services',
-        privacy_p4: 'Subscriptions are processed through Creem. Payments are handled by Creem and we do not receive your payment details; you receive a License Key for activation.',
+        privacy_p4: 'License validation is handled via Cloudflare Workers and Creem. We do not receive your payment details.',
         privacy_h5: '5. Network Requests & Security',
-        privacy_p5: 'During export, the extension may request data from chatgpt.com / chat.openai.com; if attachment export is enabled, it may download files from *.oaiusercontent.com. Other than that, no conversation data is sent to developer-owned servers.',
-        privacy_h6: '6. Contact Us',
-        privacy_p6: 'If you have any privacy-related questions, please contact:',
+        privacy_p5: 'Exports may access chatgpt.com / chat.openai.com; attachments may download from *.oaiusercontent.com; license checks reach our license server and Creem. All requests use HTTPS.',
+        privacy_h6: '6. Limited Use',
+        privacy_p6: 'Our use of information received from Google APIs adheres to the Chrome Web Store User Data Policy, including Limited Use.',
+        privacy_h7: '7. Contact Us',
+        privacy_p7: 'If you have any privacy-related questions, please contact:',
         terms_title: 'Terms of Service',
         terms_date: 'Last updated: January 2026',
         terms_h1: '1. Service Overview',
-        terms_p1: 'ChatShell is a browser extension that allows users to export ChatGPT conversations in various formats. By using this service, you agree to the following terms.',
+        terms_p1: 'ChatShell is a browser extension that allows users to export ChatGPT conversations. By using this service, you agree to these terms.',
         terms_h2: '2. License',
         terms_li1: 'Free version: Available for free with export limits and watermarks',
         terms_li2: 'Paid version: Subscription unlocks full features during the billing period; you can cancel anytime',
@@ -244,7 +248,7 @@ const translations = {
         terms_li9: 'We are not liable for any damages caused by use of this extension',
         terms_li10: 'This extension is not affiliated with OpenAI or ChatGPT',
         terms_h5: '5. Refund Policy',
-        terms_p5: 'Subscriptions are billed monthly or yearly and downgrade at the end of the billing period when canceled. For refunds, please refer to Creem policies.',
+        terms_p5: 'Payments are processed by Creem; the seller is the ChatShell developer. Refunds and cancellations follow Creem policy.',
         terms_h6: '6. Terms Changes',
         terms_p6: 'We reserve the right to modify these terms at any time. Significant changes will be announced on the website.',
         terms_h7: '7. Contact',
@@ -288,8 +292,7 @@ const PRICE_YEARLY_USD = {
     pro: 72
 };
 const PRICE_CURRENCY = {
-    USD: '$',
-    CNY: '¥'
+    USD: '$'
 };
 let exchangeRateCny = null;
 
@@ -393,38 +396,24 @@ function updateLanguage() {
 }
 
 async function initPricing() {
-    try {
-        const res = await fetch('https://api.frankfurter.dev/v1/latest?base=USD&symbols=CNY');
-        if (!res.ok) throw new Error('rate fetch failed');
-        const data = await res.json();
-        if (data && data.rates && typeof data.rates.CNY === 'number') {
-            exchangeRateCny = data.rates.CNY;
-        }
-    } catch (err) {
-        // keep fallback translation values if rate is unavailable
-        exchangeRateCny = null;
-    }
     updatePricingUI();
 }
 
 function formatCurrency(amount, currency) {
     const symbol = PRICE_CURRENCY[currency] || '';
-    const rounded = currency === 'CNY' ? Math.round(amount) : Math.round(amount);
+    const rounded = Math.round(amount);
     return `${symbol}${rounded}`;
 }
 
 function updatePricingUI() {
-    const useCny = currentLang === 'zh-CN';
-    const currency = useCny ? 'CNY' : 'USD';
-    const rate = useCny ? exchangeRateCny : 1;
-    if (useCny && !rate) return;
+    const currency = 'USD';
+    const rate = 1;
 
     const stdMonthly = PRICE_BASE_USD.standard * rate;
     const proMonthly = PRICE_BASE_USD.pro * rate;
     const stdYear = PRICE_YEARLY_USD.standard * rate;
     const proYear = PRICE_YEARLY_USD.pro * rate;
 
-    // 计算年付节省金额
     const stdYearlyFromMonthly = stdMonthly * 12;
     const proYearlyFromMonthly = proMonthly * 12;
     const stdSave = stdYearlyFromMonthly - stdYear;
@@ -439,9 +428,9 @@ function updatePricingUI() {
     setText('pricing_std_price', formatCurrency(stdMonthly, currency));
     setText('pricing_pro_price', formatCurrency(proMonthly, currency));
 
-    if (useCny) {
-        setText('pricing_std_year', `年付 ${formatCurrency(stdYear, currency)}（省 ${formatCurrency(stdSave, currency)}）`);
-        setText('pricing_pro_year', `年付 ${formatCurrency(proYear, currency)}（省 ${formatCurrency(proSave, currency)}）`);
+    if (currentLang === 'zh-CN') {
+        setText('pricing_std_year', `?? ${formatCurrency(stdYear, currency)}?? ${formatCurrency(stdSave, currency)}?`);
+        setText('pricing_pro_year', `?? ${formatCurrency(proYear, currency)}?? ${formatCurrency(proSave, currency)}?`);
     } else {
         setText('pricing_std_year', `Annual ${formatCurrency(stdYear, currency)} (save ${formatCurrency(stdSave, currency)})`);
         setText('pricing_pro_year', `Annual ${formatCurrency(proYear, currency)} (save ${formatCurrency(proSave, currency)})`);
