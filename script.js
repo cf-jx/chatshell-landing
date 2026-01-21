@@ -16,7 +16,7 @@ const translations = {
         feature_1_title: '多格式导出',
         feature_1_desc: '支持 PDF、Markdown、DOCX、HTML、JSON 等格式，导出更干净、更可读。',
         feature_2_title: '本地运行',
-        feature_2_desc: '无需后台服务，主要逻辑在浏览器本地完成，使用更安心。',
+        feature_2_desc: '无需后台服务，主要逻辑在浏览器本地完成。自动适配深色/浅色模式。',
         feature_3_title: '隐私优先',
         feature_3_desc: '不做追踪与广告；不把对话数据发送到开发者服务器。',
         feature_4_title: '公式渲染',
@@ -25,8 +25,10 @@ const translations = {
         feature_5_desc: '一键导出多个对话至 HTML/MD/DOCX/JSON（Pro）。',
         feature_6_title: '贴边浮动入口',
         feature_6_desc: '可自由拖拽，贴边后自动隐藏一半，不挡阅读视线。',
+        feature_7_title: '附件下载',
+        feature_7_desc: '一键下载对话中的图片、文档等附件，打包为 ZIP（Pro）。',
         showcase_title: '界面预览',
-        showcase_desc: '这里预留配图位置，后续可替换为真实截图。',
+        showcase_desc: '实际产品界面展示',
         showcase_shot_1: '截图占位：浮动按钮（可拖拽 / 贴边自动隐藏）',
         showcase_shot_2: '截图占位：导出面板（格式 / 选中导出 / 偏好设置）',
         showcase_shot_3: '截图占位：导出结果（PDF / Markdown / DOCX）',
@@ -51,7 +53,7 @@ const translations = {
         pricing_free_1: 'PDF 导出 3次/月',
         pricing_free_2: '其他格式 5次/月',
         pricing_free_3: '带水印',
-        pricing_free_limit: '每月限 3-5 次',
+        pricing_free_limit: 'PDF 3次/月，其他 5次/月',
         pricing_free_watermark: '✗ 带水印',
         pricing_free_nobatch: '✗ 批量导出 & 团队空间',
         pricing_std_1: '✓ 无限导出 · 无水印',
@@ -74,7 +76,7 @@ const translations = {
         download_action: '下载最新版本',
         // Legal pages
         privacy_title: '隐私政策',
-        privacy_date: '最后更新：2025年12月',
+        privacy_date: '最后更新：2026年1月',
         privacy_h1: '1. 概述',
         privacy_p1: 'ChatShell（"拾贝"）是一款浏览器扩展，帮助用户导出 ChatGPT 对话。我们重视您的隐私，本政策说明我们如何处理您的数据。',
         privacy_h2: '2. 数据访问与处理',
@@ -95,7 +97,7 @@ const translations = {
         privacy_h6: '6. 联系我们',
         privacy_p6: '如有任何隐私相关问题，请联系：',
         terms_title: '服务条款',
-        terms_date: '最后更新：2025年12月',
+        terms_date: '最后更新：2026年1月',
         terms_h1: '1. 服务概述',
         terms_p1: 'ChatShell（"拾贝"）是一款浏览器扩展，允许用户将 ChatGPT 对话导出为多种格式。使用本服务即表示您同意以下条款。',
         terms_h2: '2. 使用许可',
@@ -128,6 +130,10 @@ const translations = {
         faq_2_a: '订阅后您将收到一个 License Key。在插件的“账户”页面输入该 Key 即可激活。',
         faq_3_q: '支持哪些浏览器？',
         faq_3_a: '支持所有基于 Chromium 内核的浏览器，如 Chrome, Edge, Brave, Arc 等。',
+        faq_4_q: '支持哪些导出格式？',
+        faq_4_a: '单对话导出支持 PDF、Markdown、DOCX、JSON；批量导出支持 HTML、Markdown、DOCX、JSON。',
+        faq_5_q: '订阅可以在多台设备上使用吗？',
+        faq_5_a: '可以。License Key 会通过浏览器同步，您可以在多台设备上使用同一个订阅。',
 
         feedback_title: '问题反馈',
         feedback_desc: '遇到问题或有功能建议？欢迎随时联系我们。我们会认真阅读每一条反馈。',
@@ -147,7 +153,7 @@ const translations = {
         feature_1_title: 'Multi-format Export',
         feature_1_desc: 'Export to PDF, Markdown, DOCX, HTML, JSON, and more — clean and readable outputs.',
         feature_2_title: 'Runs Locally',
-        feature_2_desc: 'No backend required. Core logic runs locally in your browser.',
+        feature_2_desc: 'No backend required. Core logic runs locally. Auto adapts to dark/light mode.',
         feature_3_title: 'Privacy First',
         feature_3_desc: 'No tracking or ads. We don\'t send conversation data to developer-owned servers.',
         feature_4_title: 'Formula Rendering',
@@ -156,8 +162,10 @@ const translations = {
         feature_5_desc: 'Export multiple chats to HTML/MD/DOCX/JSON with one click (Pro).',
         feature_6_title: 'Dockable Floating Button',
         feature_6_desc: 'Drag freely, dock to the edge, and auto-hide half to stay out of the way.',
+        feature_7_title: 'Attachment Download',
+        feature_7_desc: 'Download images, documents and attachments from conversations as ZIP (Pro).',
         showcase_title: 'UI Preview',
-        showcase_desc: 'Placeholders for screenshots — swap in your own images later.',
+        showcase_desc: 'Actual product interface',
         showcase_shot_1: 'Screenshot placeholder: Floating button (drag / edge hide)',
         showcase_shot_2: 'Screenshot placeholder: Export panel (format / selection / preferences)',
         showcase_shot_3: 'Screenshot placeholder: Export result (PDF / Markdown / DOCX)',
@@ -182,7 +190,7 @@ const translations = {
         pricing_free_1: '3 PDF exports/month',
         pricing_free_2: '5 other exports/month',
         pricing_free_3: 'With watermark',
-        pricing_free_limit: '3-5 exports/month',
+        pricing_free_limit: '3 PDF/month, 5 others/month',
         pricing_free_watermark: '✗ With watermark',
         pricing_free_nobatch: '✗ Batch export & Team space',
         pricing_std_1: '✓ Unlimited exports · No watermark',
@@ -205,7 +213,7 @@ const translations = {
         download_action: 'Download Latest',
         // Legal pages
         privacy_title: 'Privacy Policy',
-        privacy_date: 'Last updated: December 2025',
+        privacy_date: 'Last updated: January 2026',
         privacy_h1: '1. Overview',
         privacy_p1: 'ChatShell is a browser extension that helps users export ChatGPT conversations. We value your privacy and this policy explains how we handle your data.',
         privacy_h2: '2. Data Access & Processing',
@@ -226,7 +234,7 @@ const translations = {
         privacy_h6: '6. Contact Us',
         privacy_p6: 'If you have any privacy-related questions, please contact:',
         terms_title: 'Terms of Service',
-        terms_date: 'Last updated: December 2025',
+        terms_date: 'Last updated: January 2026',
         terms_h1: '1. Service Overview',
         terms_p1: 'ChatShell is a browser extension that allows users to export ChatGPT conversations in various formats. By using this service, you agree to the following terms.',
         terms_h2: '2. License',
@@ -259,6 +267,10 @@ const translations = {
         faq_2_a: 'You will receive a License Key after subscribing. Enter it in the "Account" page of the extension to activate.',
         faq_3_q: 'Which browsers are supported?',
         faq_3_a: 'All Chromium-based browsers are supported, such as Chrome, Edge, Brave, Arc, etc.',
+        faq_4_q: 'What export formats are supported?',
+        faq_4_a: 'Single chat: PDF, Markdown, DOCX, JSON. Batch export: HTML, Markdown, DOCX, JSON.',
+        faq_5_q: 'Can I use my subscription on multiple devices?',
+        faq_5_a: 'Yes. Your License Key syncs via browser, so you can use it across devices.',
 
         feedback_title: 'Feedback',
         feedback_desc: 'Have questions or suggestions? Feel free to contact us anytime.',
@@ -420,6 +432,12 @@ function updatePricingUI() {
     const stdYear = PRICE_YEARLY_USD.standard * rate;
     const proYear = PRICE_YEARLY_USD.pro * rate;
 
+    // 计算年付节省金额
+    const stdYearlyFromMonthly = stdMonthly * 12;
+    const proYearlyFromMonthly = proMonthly * 12;
+    const stdSave = stdYearlyFromMonthly - stdYear;
+    const proSave = proYearlyFromMonthly - proYear;
+
     const setText = (key, value) => {
         const el = document.querySelector(`[data-i18n="${key}"]`);
         if (el) el.textContent = value;
@@ -430,11 +448,11 @@ function updatePricingUI() {
     setText('pricing_pro_price', formatCurrency(proMonthly, currency));
 
     if (useCny) {
-        setText('pricing_std_year', `年付 ${formatCurrency(stdYear, currency)}（省 25%）`);
-        setText('pricing_pro_year', `年付 ${formatCurrency(proYear, currency)}（省 25%）`);
+        setText('pricing_std_year', `年付 ${formatCurrency(stdYear, currency)}（省 ${formatCurrency(stdSave, currency)}）`);
+        setText('pricing_pro_year', `年付 ${formatCurrency(proYear, currency)}（省 ${formatCurrency(proSave, currency)}）`);
     } else {
-        setText('pricing_std_year', `Annual ${formatCurrency(stdYear, currency)} (save 25%)`);
-        setText('pricing_pro_year', `Annual ${formatCurrency(proYear, currency)} (save 25%)`);
+        setText('pricing_std_year', `Annual ${formatCurrency(stdYear, currency)} (save ${formatCurrency(stdSave, currency)})`);
+        setText('pricing_pro_year', `Annual ${formatCurrency(proYear, currency)} (save ${formatCurrency(proSave, currency)})`);
     }
 }
 
