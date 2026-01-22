@@ -40,11 +40,11 @@ const translations = {
         pricing_pro: '专业版',
         pricing_once: '每月',
         pricing_popular: '热门',
-        pricing_free_price: '¥0',
-        pricing_std_price: '¥12',
-        pricing_pro_price: '¥25',
-        pricing_std_year: '年付 ¥108（省 ¥36）',
-        pricing_pro_year: '年付 ¥225（省 ¥75）',
+        pricing_free_price: '$0',
+        pricing_std_price: '$4',
+        pricing_pro_price: '$8',
+        pricing_std_year: '年付 $36（省 $12）',
+        pricing_pro_year: '年付 $72（省 $24）',
         pricing_free_limit: 'PDF 3次/月，其他 5次/月',
         pricing_free_watermark: '✗ 有水印',
         pricing_free_nobatch: '✗ 批量导出 & 团队空间',
@@ -264,24 +264,6 @@ const langButtonLabels = { 'zh-CN': 'En', en: '中文' };
 // Initialize
 let currentLang = localStorage.getItem('chatshell-lang') || 'zh-CN';
 
-const PRICE_BASE_USD = {
-    free: 0,
-    standard: 4,
-    pro: 8
-};
-
-const PRICE_YEARLY_USD = {
-    standard: 36,
-    pro: 72
-};
-
-const PRICE_CURRENCY = {
-    USD: '$',
-    CNY: '¥'
-};
-
-let exchangeRateCny = null;
-
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitch();
     initPricing();
@@ -346,7 +328,6 @@ function initLanguageSwitch() {
         langBtn.textContent = translations[currentLang].lang_btn;
         updateLanguage();
         document.documentElement.lang = currentLang;
-        updatePricingUI();
     });
 }
 
@@ -381,69 +362,8 @@ function updateLanguage() {
     }
 }
 
-async function initPricing() {
-    await loadExchangeRate();
-    updatePricingUI();
-}
-
-function loadExchangeRate() {
-    return new Promise((resolve) => {
-        const controller = new AbortController();
-        const timer = setTimeout(() => {
-            controller.abort();
-            resolve();
-        }, 4000);
-        fetch('https://api.frankfurter.dev/latest?from=USD&to=CNY', { signal: controller.signal })
-            .then((response) => response.ok ? response.json() : null)
-            .then((data) => {
-                clearTimeout(timer);
-                if (data && data.rates && typeof data.rates.CNY === 'number') {
-                    exchangeRateCny = data.rates.CNY;
-                }
-                resolve();
-            })
-            .catch(() => {
-                clearTimeout(timer);
-                resolve();
-            });
-    });
-}
-
-function formatCurrency(amount, currency) {
-    const symbol = PRICE_CURRENCY[currency] || '';
-    const rounded = Math.round(amount);
-    return `${symbol}${rounded}`;
-}
-
-function updatePricingUI() {
-    const useCny = currentLang === 'zh-CN';
-    const currency = useCny ? 'CNY' : 'USD';
-    const stdMonthly = useCny ? 12 : PRICE_BASE_USD.standard;
-    const proMonthly = useCny ? 25 : PRICE_BASE_USD.pro;
-    const stdYear = useCny ? 108 : PRICE_YEARLY_USD.standard;
-    const proYear = useCny ? 225 : PRICE_YEARLY_USD.pro;
-
-    const stdYearlyFromMonthly = stdMonthly * 12;
-    const proYearlyFromMonthly = proMonthly * 12;
-    const stdSave = stdYearlyFromMonthly - stdYear;
-    const proSave = proYearlyFromMonthly - proYear;
-
-    const setText = (key, value) => {
-        const el = document.querySelector(`[data-i18n="${key}"]`);
-        if (el) el.textContent = value;
-    };
-
-    setText('pricing_free_price', formatCurrency(PRICE_BASE_USD.free, currency));
-    setText('pricing_std_price', formatCurrency(stdMonthly, currency));
-    setText('pricing_pro_price', formatCurrency(proMonthly, currency));
-
-    if (currentLang === 'zh-CN') {
-        setText('pricing_std_year', `年付 ${formatCurrency(stdYear, currency)}（省 ${formatCurrency(stdSave, currency)}）`);
-        setText('pricing_pro_year', `年付 ${formatCurrency(proYear, currency)}（省 ${formatCurrency(proSave, currency)}）`);
-    } else {
-        setText('pricing_std_year', `Annual ${formatCurrency(stdYear, currency)} (save ${formatCurrency(stdSave, currency)})`);
-        setText('pricing_pro_year', `Annual ${formatCurrency(proYear, currency)} (save ${formatCurrency(proSave, currency)})`);
-    }
+function initPricing() {
+    // Prices are now static in translations, no dynamic update needed
 }
 
 // ========================================
