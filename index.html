@@ -228,8 +228,20 @@
 
     <section id="pricing" class="pricing">
       <div class="section-header">
-        <p class="section-tag">Pricing</p>
-        <h2 class="section-title" data-i18n="pricing_title">选择适合你的版本</h2>
+        <div class="section-header-row">
+          <div class="section-header-copy">
+            <p class="section-tag">Pricing</p>
+            <h2 class="section-title" data-i18n="pricing_title">Choose Your Plan</h2>
+          </div>
+          <div class="billing-toggle" role="group" aria-label="Billing period">
+            <span class="billing-label" data-role="billing-annual">Annual</span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="billing-toggle" aria-label="Toggle monthly billing">
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="billing-label" data-role="billing-monthly">Monthly</span>
+          </div>
+        </div>
       </div>
 
       <div class="pricing-grid">
@@ -249,44 +261,54 @@
         </div>
 
         <!-- Standard Tier -->
-        <div class="pricing-card featured">
+        <div class="pricing-card featured" data-plan="standard">
           <h3 class="pricing-name" data-i18n="pricing_standard">标准版</h3>
           <div class="pricing-price">
-            <span class="price-amount" data-i18n="pricing_std_price">¥12</span>
-            <span class="price-period" data-i18n="pricing_once">每月</span>
+            <span class="price-amount" data-price-monthly="4" data-price-annual="36">$36</span>
+            <span class="price-period">per year</span>
+            <span class="price-badge" data-role="price-badge"></span>
           </div>
-          <a href="https://www.creem.io/test/payment/prod_7KLUlPxDGS3Uz6ZuhF4HMF" id="buy-standard-yearly" class="pricing-yearly" data-i18n="pricing_std_year" target="_blank" rel="noopener noreferrer">年付 ¥108（省 25%）</a>
           <ul class="pricing-features">
             <li class="feature-yes" data-i18n="pricing_std_1">✓ Unlimited exports · No watermark</li>
             <li class="feature-yes" data-i18n="pricing_std_2">✓ Timestamps & Remove separators</li>
             <li class="feature-no" data-i18n="pricing_std_nobatch">✗ Batch export & Team space</li>
           </ul>
-          <a href="https://www.creem.io/test/payment/prod_etwFGQhTnf12g94BxOPaa" id="buy-standard" class="btn btn-primary" data-i18n="pricing_buy" target="_blank" rel="noopener noreferrer">立即订阅</a>
+          <a
+            href="https://www.creem.io/test/payment/prod_7KLUlPxDGS3Uz6ZuhF4HMF"
+            id="buy-standard"
+            class="btn btn-primary"
+            data-i18n="pricing_buy"
+            data-monthly-href="https://www.creem.io/test/payment/prod_etwFGQhTnf12g94BxOPaa"
+            data-annual-href="https://www.creem.io/test/payment/prod_7KLUlPxDGS3Uz6ZuhF4HMF"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Subscribe</a>
         </div>
 
         <!-- Pro Tier -->
-        <div class="pricing-card">
+        <div class="pricing-card" data-plan="pro">
           <h3 class="pricing-name" data-i18n="pricing_pro">专业版</h3>
           <div class="pricing-price">
-            <span class="price-amount" data-i18n="pricing_pro_price">¥25</span>
-            <span class="price-period" data-i18n="pricing_once">每月</span>
+            <span class="price-amount" data-price-monthly="8" data-price-annual="72">$72</span>
+            <span class="price-period">per year</span>
+            <span class="price-badge" data-role="price-badge"></span>
           </div>
-          <a href="https://www.creem.io/test/payment/prod_j9tLgJnUAubFDfIARnRcC" id="buy-pro-yearly" class="pricing-yearly" data-i18n="pricing_pro_year" target="_blank" rel="noopener noreferrer">年付 ¥225（省 25%）</a>
           <ul class="pricing-features">
             <li class="feature-yes" data-i18n="pricing_pro_1">✓ All Standard features</li>
             <li class="feature-yes" data-i18n="pricing_pro_2">✓ Batch export & Team space</li>
             <li class="feature-limit" data-i18n="pricing_pro_3">✓ Backup report reminders (coming soon)</li>
           </ul>
-          <a href="https://www.creem.io/test/payment/prod_5uzdbr177Z9MzQVlYB5DL8" id="buy-pro" class="btn btn-primary" data-i18n="pricing_buy" target="_blank" rel="noopener noreferrer">立即订阅</a>
+          <a
+            href="https://www.creem.io/test/payment/prod_j9tLgJnUAubFDfIARnRcC"
+            id="buy-pro"
+            class="btn btn-primary"
+            data-i18n="pricing_buy"
+            data-monthly-href="https://www.creem.io/test/payment/prod_5uzdbr177Z9MzQVlYB5DL8"
+            data-annual-href="https://www.creem.io/test/payment/prod_j9tLgJnUAubFDfIARnRcC"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Subscribe</a>
         </div>
-      </div>
-
-      <div class="pricing-upgrade">
-        <div class="pricing-upgrade-copy">
-          <div class="pricing-upgrade-title" data-i18n="pricing_upgrade_title">已有标准版？升级专业版</div>
-          <div class="pricing-upgrade-desc" data-i18n="pricing_upgrade_desc">订阅专业版解锁批量导出与附件下载</div>
-        </div>
-        <a href="https://www.creem.io/test/payment/prod_5uzdbr177Z9MzQVlYB5DL8" id="buy-upgrade" class="btn btn-secondary" data-i18n="pricing_upgrade_btn" target="_blank" rel="noopener noreferrer">升级到专业版</a>
       </div>
     </section>
 
@@ -378,12 +400,12 @@
         <p class="section-tag">Download</p>
         <h2 data-i18n="download_title">开始使用</h2>
         <p class="download-desc" data-i18n="download_desc">
-          从 GitHub 获取最新版本，按说明安装。Chrome Web Store 即将上架。
+          仅通过 Chrome Web Store 安装与更新（自动更新）。
         </p>
         <p class="download-meta" data-i18n="download_meta">当前版本：v1.0.0.1</p>
-        <a href="https://github.com/cf-jx/chatShell/releases/latest" target="_blank" class="btn btn-primary"
+        <a href="https://chromewebstore.google.com/search/chatshell" target="_blank" class="btn btn-primary"
           data-i18n="download_action">
-          <span>下载最新版本</span>
+          <span>前往 Chrome Web Store</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
               stroke-linejoin="round" />

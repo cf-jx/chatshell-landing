@@ -54,15 +54,12 @@ const translations = {
         pricing_pro_1: '✓ 标准版全部功能',
         pricing_pro_2: '✓ 批量导出 & 团队空间',
         pricing_pro_3: '✓ 备份报告提醒（即将上线）',
-        pricing_upgrade_title: '已有标准版？升级专业版',
-        pricing_upgrade_desc: '订阅专业版解锁批量导出功能',
-        pricing_upgrade_btn: '升级到专业版',
         pricing_buy: '立即订阅',
         pricing_free_btn: '免费下载',
         download_title: '开始使用',
-        download_desc: '从 GitHub 获取最新版本，按说明安装。Chrome Web Store 即将上架。',
+        download_desc: '仅通过 Chrome Web Store 安装与更新（自动更新）。',
         download_meta: '当前版本：v1.0.0.1',
-        download_action: '下载最新版本',
+        download_action: '前往 Chrome Web Store',
         // Legal pages
         privacy_title: '隐私政策',
         privacy_date: '最后更新：2026年1月22日',
@@ -180,15 +177,12 @@ const translations = {
         pricing_pro_1: '✓ All Standard features',
         pricing_pro_2: '✓ Batch export & Team space',
         pricing_pro_3: '✓ Backup report reminders (coming soon)',
-        pricing_upgrade_title: 'Already on Standard? Upgrade to Pro',
-        pricing_upgrade_desc: 'Subscribe to Pro to unlock batch export.',
-        pricing_upgrade_btn: 'Upgrade to Pro',
         pricing_buy: 'Subscribe',
         pricing_free_btn: 'Download Free',
         download_title: 'Get Started',
-        download_desc: 'Get the latest version from GitHub. Chrome Web Store coming soon.',
+        download_desc: 'Install and update via Chrome Web Store (auto-updates).',
         download_meta: 'Current version: v1.0.0.1',
-        download_action: 'Download Latest',
+        download_action: 'Get on Chrome Web Store',
         // Legal pages
         privacy_title: 'Privacy Policy',
         privacy_date: 'Last updated: January 22, 2026',
@@ -363,7 +357,61 @@ function updateLanguage() {
 }
 
 function initPricing() {
-    // Prices are now static in translations, no dynamic update needed
+    const toggle = document.getElementById('billing-toggle');
+    if (!toggle) return;
+
+    const STORAGE_KEY = 'chatshell-billing';
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const initialMode = saved === 'monthly' ? 'monthly' : 'annual';
+    toggle.checked = initialMode === 'monthly';
+
+    const formatUsd = (amount) => {
+        const rounded = Math.round(amount);
+        return `$${rounded}`;
+    };
+
+    const update = () => {
+        const mode = toggle.checked ? 'monthly' : 'annual';
+        localStorage.setItem(STORAGE_KEY, mode);
+
+        const cards = document.querySelectorAll('.pricing-card[data-plan]');
+        cards.forEach((card) => {
+            const amountEl = card.querySelector('.price-amount[data-price-monthly][data-price-annual]');
+            const periodEl = card.querySelector('.price-period');
+            const badgeEl = card.querySelector('[data-role="price-badge"]');
+            const buyEl = card.querySelector('a.btn[data-monthly-href][data-annual-href]');
+            if (!amountEl || !periodEl || !badgeEl || !buyEl) return;
+
+            const monthly = Number(amountEl.getAttribute('data-price-monthly'));
+            const annual = Number(amountEl.getAttribute('data-price-annual'));
+            const hasNumbers = Number.isFinite(monthly) && Number.isFinite(annual) && monthly > 0 && annual > 0;
+            if (!hasNumbers) return;
+
+            if (mode === 'annual') {
+                amountEl.textContent = formatUsd(annual);
+                periodEl.textContent = 'per year';
+                buyEl.href = buyEl.getAttribute('data-annual-href');
+
+                const save = Math.max(0, monthly * 12 - annual);
+                if (save > 0) {
+                    badgeEl.style.display = 'inline-flex';
+                    badgeEl.textContent = `Save ${formatUsd(save)}`;
+                } else {
+                    badgeEl.style.display = 'none';
+                    badgeEl.textContent = '';
+                }
+            } else {
+                amountEl.textContent = formatUsd(monthly);
+                periodEl.textContent = 'per month';
+                buyEl.href = buyEl.getAttribute('data-monthly-href');
+                badgeEl.style.display = 'none';
+                badgeEl.textContent = '';
+            }
+        });
+    };
+
+    toggle.addEventListener('change', update);
+    update();
 }
 
 // ========================================

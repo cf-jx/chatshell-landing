@@ -686,6 +686,88 @@ main {
     margin-bottom: var(--space-12);
 }
 
+.section-header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-6);
+}
+
+.section-header-copy {
+    flex: 1;
+    text-align: center;
+}
+
+.billing-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-top: 4px;
+}
+
+.billing-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    user-select: none;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 44px;
+    height: 26px;
+    display: inline-block;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: var(--color-border);
+    border-radius: 999px;
+    transition: background 0.2s ease;
+}
+
+.toggle-slider::before {
+    content: '';
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 2px;
+    top: 2px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background: #111827;
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+    transform: translateX(18px);
+}
+
+.price-badge {
+    display: inline-flex;
+    align-items: center;
+    margin-left: var(--space-2);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 18px;
+    background: rgba(245, 158, 11, 0.12);
+    color: #b45309;
+    font-weight: var(--weight-semibold);
+    white-space: nowrap;
+}
+
 .section-title {
     font-size: var(--text-xl);
     font-weight: var(--weight-semibold);
@@ -944,33 +1026,6 @@ main {
     justify-content: center;
 }
 
-.pricing-upgrade {
-    margin-top: var(--space-8);
-    padding: var(--space-6);
-    border: 1px dashed var(--color-border);
-    border-radius: 12px;
-    background: var(--color-surface);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-6);
-}
-
-.pricing-upgrade-title {
-    font-size: var(--text-base);
-    font-weight: var(--weight-semibold);
-}
-
-.pricing-upgrade-desc {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    margin-top: var(--space-1);
-}
-
-.pricing-upgrade .btn {
-    white-space: nowrap;
-}
-
 /* ==================== DOWNLOAD SECTION ==================== */
 .download-section {
     padding: var(--space-20) var(--space-6);
@@ -1079,6 +1134,15 @@ footer {
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
+    .section-header-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .billing-toggle {
+        padding-top: 0;
+    }
+
     .feature-grid {
         grid-template-columns: 1fr;
     }
@@ -1089,16 +1153,6 @@ footer {
 
     .pricing-grid {
         grid-template-columns: 1fr;
-    }
-
-    .pricing-upgrade {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .pricing-upgrade .btn {
-        width: 100%;
-        justify-content: center;
     }
 
     .hero h1 {
