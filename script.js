@@ -389,7 +389,7 @@ function initPricing() {
 
             if (mode === 'annual') {
                 amountEl.textContent = formatUsd(annual);
-                periodEl.textContent = 'per year';
+                periodEl.textContent = '/ year';
                 buyEl.href = buyEl.getAttribute('data-annual-href');
 
                 const save = Math.max(0, monthly * 12 - annual);
@@ -402,7 +402,7 @@ function initPricing() {
                 }
             } else {
                 amountEl.textContent = formatUsd(monthly);
-                periodEl.textContent = 'per month';
+                periodEl.textContent = '/ month';
                 buyEl.href = buyEl.getAttribute('data-monthly-href');
                 badgeEl.style.display = 'none';
                 badgeEl.textContent = '';
