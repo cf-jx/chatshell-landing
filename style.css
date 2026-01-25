@@ -871,7 +871,12 @@ main {
     display: grid;
     grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
     gap: var(--space-8);
-    align-items: center;
+    align-items: start;
+    padding: var(--space-6);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    background: var(--color-bg);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
 }
 
 .showcase-item.is-reversed {
@@ -887,8 +892,8 @@ main {
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--color-border);
-    background: var(--color-bg);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    background: var(--color-surface);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     transition:
         transform var(--duration-swift) var(--ease-spring),
         box-shadow var(--duration-swift) var(--ease-out),
@@ -898,7 +903,7 @@ main {
 
 .showcase-media-link:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 56px rgba(0, 0, 0, 0.14);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
     border-color: rgba(24, 24, 27, 0.14);
 }
 
@@ -1185,6 +1190,7 @@ footer {
     .showcase-item {
         grid-template-columns: 1fr;
         gap: var(--space-4);
+        padding: var(--space-5);
     }
 
     .showcase-item.is-reversed {
