@@ -233,7 +233,7 @@ const translations = {
         terms_p7: 'Seller: SCF. Contact:',
         lang_btn: '中文',
         // FAQ & Feedback
-        faq_title: 'FAQ',
+        faq_title: 'Frequently Asked Questions',
         faq_1_q: 'Where is my data stored?',
         faq_1_a: 'All conversation data is saved only in your local browser. We cannot access, view, or store any of your data.',
         faq_2_q: 'How to activate Pro version?',
