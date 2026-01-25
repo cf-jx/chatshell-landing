@@ -306,6 +306,30 @@ main {
     z-index: -1;
 }
 
+/* Hero Screenshot Container */
+.hero-screenshot-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.hero-screenshot-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--color-border);
+    animation: floatUp 0.8s var(--ease-spring) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.hero-screenshot {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Real Screenshot Styling */
 .mockup-screenshot {
     border-radius: 16px;
@@ -835,70 +859,76 @@ main {
     background: var(--color-surface);
 }
 
-.showcase-grid {
-    max-width: var(--layout-max-width);
+.showcase-list {
+    max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
-}
-
-.showcase-card {
-    padding: var(--space-6);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    background: var(--color-bg);
-    transition: all var(--duration-swift);
-}
-
-.showcase-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.12);
-}
-
-.media-placeholder {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 10px;
-    border: 1px dashed var(--color-border);
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0));
     display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+}
+
+.showcase-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: var(--space-8);
     align-items: center;
-    justify-content: center;
-    padding: var(--space-4);
-    color: var(--color-text-tertiary);
-    font-size: var(--text-xs);
-    text-align: center;
-    margin-bottom: var(--space-4);
 }
 
-.showcase-image {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    border-radius: 10px;
+.showcase-item.is-reversed {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+}
+
+.showcase-item.is-reversed .showcase-media {
+    order: 2;
+}
+
+.showcase-media-link {
+    display: block;
+    border-radius: 16px;
     overflow: hidden;
-    margin-bottom: var(--space-4);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    transition:
+        transform var(--duration-swift) var(--ease-spring),
+        box-shadow var(--duration-swift) var(--ease-out),
+        border-color var(--duration-swift) var(--ease-out);
+    cursor: zoom-in;
 }
 
-.showcase-image img {
+.showcase-media-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 56px rgba(0, 0, 0, 0.14);
+    border-color: rgba(24, 24, 27, 0.14);
+}
+
+.showcase-media-link:focus-visible {
+    outline: 3px solid rgba(24, 24, 27, 0.25);
+    outline-offset: 4px;
+}
+
+.showcase-media-link img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: #fafafa;
+    height: auto;
+    display: block;
 }
 
-.showcase-card h3 {
-    font-size: var(--text-base);
+.showcase-content {
+    padding: var(--space-2) 0;
+}
+
+.showcase-title {
+    font-size: var(--text-lg);
     font-weight: var(--weight-semibold);
+    letter-spacing: -0.02em;
     margin-bottom: var(--space-2);
 }
 
-.showcase-card p {
-    font-size: var(--text-sm);
+.showcase-desc {
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
     line-height: var(--leading-relaxed);
+    max-width: 52ch;
 }
 
 /* ==================== PRICING SECTION ==================== */
@@ -1152,8 +1182,21 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .showcase-grid {
+    .showcase-item {
         grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    .showcase-item.is-reversed {
+        grid-template-columns: 1fr;
+    }
+
+    .showcase-item.is-reversed .showcase-media {
+        order: 0;
+    }
+
+    .showcase-content {
+        padding: 0;
     }
 
     .pricing-grid {

@@ -27,12 +27,12 @@ const translations = {
         feature_6_desc: '可自由拖拽，贴边后自动隐藏一半，不挡阅读视线。',
         showcase_title: '界面预览',
         showcase_desc: '实际产品界面展示',
-        showcase_1_title: '浮动入口',
-        showcase_1_desc: '随时一键呼出导出面板，减少打扰。',
-        showcase_2_title: '导出面板',
-        showcase_2_desc: '选择格式与偏好，导出更干净、更可读。',
-        showcase_3_title: '导出结果',
-        showcase_3_desc: '适合归档、分享与二次编辑。',
+        showcase_1_title: '偏好设置',
+        showcase_1_desc: '把导出格式与细节调到你喜欢的样子。',
+        showcase_2_title: '批量导出（Pro）',
+        showcase_2_desc: '一键导出多个对话，省下重复操作时间。',
+        showcase_3_title: '账户',
+        showcase_3_desc: '登录与 License 管理，支持跨设备同步。',
         features_title: '为什么选择 ChatShell',
         pricing_title: '选择适合你的版本',
         pricing_free: '免费版',
@@ -150,12 +150,12 @@ const translations = {
         feature_6_desc: 'Drag freely, dock to the edge, and auto-hide half to stay out of the way.',
         showcase_title: 'UI Preview',
         showcase_desc: 'Actual product interface',
-        showcase_1_title: 'Floating Shortcut',
-        showcase_1_desc: 'Open the export panel anytime with minimal distraction.',
-        showcase_2_title: 'Export Panel',
-        showcase_2_desc: 'Pick format and preferences for cleaner exports.',
-        showcase_3_title: 'Export Output',
-        showcase_3_desc: 'Great for archiving, sharing, and editing.',
+        showcase_1_title: 'Preferences',
+        showcase_1_desc: 'Tune formats and details the way you like.',
+        showcase_2_title: 'Batch Export (Pro)',
+        showcase_2_desc: 'Export multiple chats in one go and save time.',
+        showcase_3_title: 'Account',
+        showcase_3_desc: 'Manage login and License with cross-device sync.',
         features_title: 'Why Choose ChatShell',
         pricing_title: 'Choose Your Plan',
         pricing_free: 'Free',
@@ -460,7 +460,7 @@ function initIntersectionObserver() {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.feature-card, .showcase-card, .hero h1, .hero p, .hero .cta-group, .mockup-window');
+    const animatedElements = document.querySelectorAll('.feature-card, .showcase-item, .hero h1, .hero p, .hero .cta-group, .mockup-window');
     animatedElements.forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
@@ -555,3 +555,4 @@ function initDraggableWindow() {
         dragHandle.style.cursor = 'grab';
     });
 }
+

@@ -49,51 +49,17 @@
         </a>
       </div>
 
-      <!-- CSS Mockup: Chat Interface + Floating Export Panel -->
-      <div class="hero-visual mockup-container">
-        <div class="mockup-window">
-          <div class="window-header">
-            <div class="window-controls">
-              <span class="control red"></span>
-              <span class="control yellow"></span>
-              <span class="control green"></span>
-            </div>
-            <span class="window-title">ChatGPT</span>
-          </div>
-          <div class="window-body">
-            <!-- Chat Area -->
-            <div class="chat-area">
-              <div class="message user-message">
-                <div class="avatar user-avatar"></div>
-                <div class="bubble">
-                  <div class="line short"></div>
-                  <div class="line medium"></div>
-                </div>
-              </div>
-              <div class="message ai-message">
-                <div class="avatar ai-avatar"></div>
-                <div class="bubble">
-                  <div class="line long"></div>
-                  <div class="line long"></div>
-                  <div class="line medium"></div>
-                </div>
-              </div>
-            </div>
-            <!-- Floating Export Panel -->
-            <div class="chatshell-panel">
-              <div class="panel-header">
-                <img src="assets/logo.png" class="panel-logo" alt="ChatShell logo" />
-                <span class="panel-title">ChatShell</span>
-              </div>
-              <div class="panel-formats">
-                <div class="panel-format-btn active">PDF</div>
-                <div class="panel-format-btn">MD</div>
-                <div class="panel-format-btn">DOCX</div>
-                <div class="panel-format-btn">JSON</div>
-              </div>
-              <div class="export-btn">Export →</div>
-            </div>
-          </div>
+      <!-- Hero Screenshot -->
+      <div class="hero-visual hero-screenshot-container">
+        <div class="hero-screenshot-wrapper">
+          <img
+            src="assets/screenshots/current-conversation.png"
+            width="945"
+            height="771"
+            alt="ChatShell in action"
+            class="hero-screenshot"
+            decoding="async"
+          />
         </div>
       </div>
     </section>
@@ -199,29 +165,80 @@
         <p class="section-desc" data-i18n="showcase_desc">实际产品界面展示</p>
       </div>
 
-      <div class="showcase-grid">
-        <div class="showcase-card">
-          <div class="showcase-image">
-            <img src="assets/screenshots/floating-button.png" alt="Floating Button" />
+      <div class="showcase-list">
+        <div class="showcase-item">
+          <div class="showcase-media">
+            <a
+              class="showcase-media-link"
+              href="assets/screenshots/preferences.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open full size screenshot"
+            >
+              <img
+                src="assets/screenshots/preferences.png"
+                width="939"
+                height="771"
+                alt="Preferences settings"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
           </div>
-          <h3 data-i18n="showcase_1_title">浮动入口</h3>
-          <p data-i18n="showcase_1_desc">随时一键呼出导出面板，减少打扰。</p>
+          <div class="showcase-content">
+            <h3 class="showcase-title" data-i18n="showcase_1_title">偏好设置</h3>
+            <p class="showcase-desc" data-i18n="showcase_1_desc">把导出格式与细节调到你喜欢的样子。</p>
+          </div>
         </div>
 
-        <div class="showcase-card">
-          <div class="showcase-image">
-            <img src="assets/screenshots/export-panel.png" alt="Export Panel" />
+        <div class="showcase-item is-reversed">
+          <div class="showcase-media">
+            <a
+              class="showcase-media-link"
+              href="assets/screenshots/batch-export-pro.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open full size screenshot"
+            >
+              <img
+                src="assets/screenshots/batch-export-pro.png"
+                width="939"
+                height="767"
+                alt="Batch export (Pro)"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
           </div>
-          <h3 data-i18n="showcase_2_title">导出面板</h3>
-          <p data-i18n="showcase_2_desc">选择格式与偏好，导出更干净、更可读。</p>
+          <div class="showcase-content">
+            <h3 class="showcase-title" data-i18n="showcase_2_title">批量导出（Pro）</h3>
+            <p class="showcase-desc" data-i18n="showcase_2_desc">一键导出多个对话，省下重复操作时间。</p>
+          </div>
         </div>
 
-        <div class="showcase-card">
-          <div class="showcase-image">
-            <img src="assets/screenshots/export-result.png" alt="Export Result" />
+        <div class="showcase-item">
+          <div class="showcase-media">
+            <a
+              class="showcase-media-link"
+              href="assets/screenshots/account.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open full size screenshot"
+            >
+              <img
+                src="assets/screenshots/account.png"
+                width="942"
+                height="777"
+                alt="Account and license"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
           </div>
-          <h3 data-i18n="showcase_3_title">导出结果</h3>
-          <p data-i18n="showcase_3_desc">适合归档、分享与二次编辑。</p>
+          <div class="showcase-content">
+            <h3 class="showcase-title" data-i18n="showcase_3_title">账户</h3>
+            <p class="showcase-desc" data-i18n="showcase_3_desc">登录与 License 管理，支持跨设备同步。</p>
+          </div>
         </div>
       </div>
     </section>

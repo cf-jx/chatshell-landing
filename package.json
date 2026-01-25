@@ -1,0 +1,12 @@
+{
+  "name": "chatshell-landing",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "check-trans": "node check-trans.js",
+    "test-lang": "node test-lang.js"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.2.0"
+  }
+}
