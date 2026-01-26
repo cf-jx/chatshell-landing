@@ -314,6 +314,14 @@ main {
     padding: 0;
 }
 
+.hero-caption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+}
+
 .hero-screenshot-wrapper {
     border-radius: 16px;
     overflow: hidden;
