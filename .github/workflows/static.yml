@@ -39,6 +39,9 @@ jobs:
           mkdir -p site
           cp index.html privacy.html terms.html style.css script.js logo.png site/
           cp -r assets site/assets
+          for f in robots.txt sitemap.xml; do
+            if [ -f "$f" ]; then cp "$f" site/; fi
+          done
           if [ -f CNAME ]; then cp CNAME site/; fi
 
       - name: Setup Pages

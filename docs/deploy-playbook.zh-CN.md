@@ -19,6 +19,12 @@ node test-lang.js
 node check-trans.js
 ```
 
+### 1.3 运行 SEO 基础校验（meta/robots/sitemap）
+
+```bash
+node seo-audit.js
+```
+
 ## 2. 部署方式（GitHub Pages）
 
 ### 2.1 自动部署触发条件
@@ -39,6 +45,8 @@ node check-trans.js
 - `style.css`
 - `script.js`
 - `logo.png`
+- `robots.txt`
+- `sitemap.xml`
 - `assets/`（整目录）
 - `CNAME`（如存在）
 

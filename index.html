@@ -4,14 +4,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChatShell · 拾贝</title>
+  <title>ChatShell - ChatGPT Export Tool | PDF Markdown DOCX JSON</title>
+  <meta
+    name="description"
+    content="ChatShell：本地运行、隐私优先的 ChatGPT 导出工具。支持导出 PDF、Markdown、DOCX、JSON，完美支持 LaTeX 公式。立即从 Chrome Web Store 安装。"
+  />
+  <link rel="canonical" href="https://cf-jx.github.io/chatshell-landing/" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="theme-color" content="#0b0d14" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <meta name="description" content="ChatShell - A powerful, local, and private ChatGPT export tool." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ChatShell - ChatGPT Export Tool" />
+  <meta
+    property="og:description"
+    content="Local-first, privacy-first ChatGPT export tool. Export to PDF, Markdown, DOCX, JSON."
+  />
+  <meta property="og:url" content="https://cf-jx.github.io/chatshell-landing/" />
+  <meta property="og:site_name" content="ChatShell" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:image" content="https://cf-jx.github.io/chatshell-landing/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ChatShell - ChatGPT Export Tool" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ChatShell - ChatGPT Export Tool" />
+  <meta
+    name="twitter:description"
+    content="Local-first, privacy-first ChatGPT export tool. Export to PDF, Markdown, DOCX, JSON."
+  />
+  <meta name="twitter:image" content="https://cf-jx.github.io/chatshell-landing/assets/og.png" />
+  <meta name="twitter:image:alt" content="ChatShell - ChatGPT Export Tool" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ChatShell",
+      "description": "Local-first ChatGPT export tool for Chrome. Export conversations to PDF, Markdown, DOCX, JSON. Privacy-first and runs locally in your browser.",
+      "image": "https://cf-jx.github.io/chatshell-landing/assets/og.png",
+      "url": "https://cf-jx.github.io/chatshell-landing/",
+      "applicationCategory": "Productivity",
+      "operatingSystem": "Chrome, Edge, Brave, Arc",
+      "softwareVersion": "1.0.0.1",
+      "downloadUrl": "https://chromewebstore.google.com/detail/%E6%8B%BE%E8%B4%9D-chatgpt-%E5%AF%BC%E5%87%BA/cgbbhkffpjedcannkmgldlfkolppodnh",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://cf-jx.github.io/chatshell-landing/#pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "Standard",
+          "price": "4",
+          "priceCurrency": "USD",
+          "url": "https://cf-jx.github.io/chatshell-landing/#pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": "8",
+          "priceCurrency": "USD",
+          "url": "https://cf-jx.github.io/chatshell-landing/#pricing"
+        }
+      ],
+      "featureList": [
+        "Export to PDF, Markdown, DOCX, JSON",
+        "Local-first, privacy-first (no analytics)",
+        "LaTeX math support",
+        "Batch export (Pro)"
+      ],
+      "inLanguage": ["zh-CN", "en"]
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "数据存储在哪里？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "所有对话数据仅保存在您的本地浏览器中。我们无法访问、查看或存储您的任何数据。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何激活付费版本？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "订阅后您将收到一个 License Key。在插件的“账户”页面输入该 Key 即可激活。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持哪些浏览器？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持所有基于 Chromium 内核的浏览器，如 Chrome、Edge、Brave、Arc 等。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持哪些导出格式？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "单对话导出支持 PDF、Markdown、DOCX、JSON；批量导出支持 HTML、Markdown、DOCX、JSON。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "订阅可以在多台设备上使用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。License Key 会通过浏览器同步，您可以在多台设备上使用同一个订阅。"
+          }
+        }
+      ]
+    }
+  </script>
   <meta name="google-site-verification" content="KSfpc2K36Gm9-XEfxpX8_jma84BePTkQcY77pYd0rqc" />
 </head>
 
@@ -419,7 +541,11 @@
           仅通过 Chrome Web Store 安装与更新（自动更新）。
         </p>
         <p class="download-meta" data-i18n="download_meta">当前版本：v1.0.0.1</p>
-        <a href="https://chromewebstore.google.com/search/chatshell" target="_blank" class="btn btn-primary"
+        <a
+          href="https://chromewebstore.google.com/detail/%E6%8B%BE%E8%B4%9D-chatgpt-%E5%AF%BC%E5%87%BA/cgbbhkffpjedcannkmgldlfkolppodnh"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
           data-i18n="download_action">
           <span>前往 Chrome Web Store</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

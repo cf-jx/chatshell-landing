@@ -4,7 +4,8 @@
   "type": "commonjs",
   "scripts": {
     "check-trans": "node check-trans.js",
-    "test-lang": "node test-lang.js"
+    "test-lang": "node test-lang.js",
+    "seo-audit": "node seo-audit.js"
   },
   "devDependencies": {
     "puppeteer": "^24.2.0"
