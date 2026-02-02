@@ -254,9 +254,6 @@ const translations = {
     }
 };
 
-const defaultI18nContent = new WeakMap();
-const langButtonLabels = { 'zh-CN': 'En', en: '中文' };
-
 // Initialize
 let currentLang = localStorage.getItem('chatshell-lang') || 'zh-CN';
 
@@ -267,7 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('.hero')) {
         initScrollEffects();
         initIntersectionObserver();
-        initDraggableWindow();
         initFaqAccordion();
     }
     initSmoothScroll();
@@ -496,65 +492,4 @@ function initSmoothScroll() {
     });
 }
 
-// ========================================
-// Draggable Window (Yellow Dot)
-// ========================================
-function initDraggableWindow() {
-    const mockupWindow = document.querySelector('.mockup-window');
-    const dragHandle = document.querySelector('.dot.yellow');
-
-    if (!mockupWindow || !dragHandle) return;
-
-    let isDragging = false;
-    let startX, startY;
-
-    // Add cursor style
-    dragHandle.style.cursor = 'grab';
-    dragHandle.title = 'Drag to move';
-
-    // Helper to get current translate values
-    function getTranslateValues(element) {
-        const style = window.getComputedStyle(element);
-        const matrix = new WebKitCSSMatrix(style.transform);
-        return { x: matrix.m41, y: matrix.m42 };
-    }
-
-    // Initialize current translation
-    let currentTranslate = { x: 0, y: 0 };
-
-    dragHandle.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        dragHandle.style.cursor = 'grabbing';
-
-        // Get current mouse position
-        startX = e.clientX;
-        startY = e.clientY;
-
-        // Get current transform values
-        currentTranslate = getTranslateValues(mockupWindow);
-
-        // Disable transition during drag for smoothness
-        mockupWindow.style.transition = 'none';
-
-        e.preventDefault(); // Prevent text selection
-    });
-
-    document.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-
-        const deltaX = e.clientX - startX;
-        const deltaY = e.clientY - startY;
-
-        const newX = currentTranslate.x + deltaX;
-        const newY = currentTranslate.y + deltaY;
-
-        mockupWindow.style.transform = `translate(${newX}px, ${newY}px)`;
-    });
-
-    document.addEventListener('mouseup', () => {
-        if (!isDragging) return;
-        isDragging = false;
-        dragHandle.style.cursor = 'grab';
-    });
-}
 
