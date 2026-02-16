@@ -68,8 +68,8 @@
     /* Zinc-900 */
     --color-text-secondary: #71717A;
     /* Zinc-500 */
-    --color-text-tertiary: #A1A1AA;
-    /* Zinc-400 */
+    --color-text-tertiary: #71717A;
+    /* Zinc-500 - WCAG AA compliant (4.5:1 contrast ratio) */
 
     --color-action: #18181B;
     /* Radical Monochrome */
@@ -86,6 +86,17 @@
     --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --duration-swift: 250ms;
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 /* ==================== RESET & BASE ==================== */
@@ -113,6 +124,22 @@ button {
     border: none;
     background: none;
     cursor: pointer;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--color-action);
+    outline-offset: 2px;
+}
+
+.btn:focus-visible,
+.nav-links a:focus-visible {
+    outline: 3px solid var(--color-action);
+    outline-offset: 4px;
 }
 
 /* ==================== LAYOUT UTILITIES ==================== */
@@ -180,10 +207,27 @@ button {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     transition: color var(--duration-swift) var(--ease-out);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width var(--duration-swift) var(--ease-out);
 }
 
 .nav-links a:hover {
     color: var(--color-text-primary);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+    width: 100%;
 }
 
 .lang-btn {
@@ -226,7 +270,7 @@ main {
 }
 
 .hero h1 {
-    font-size: var(--text-2xl);
+    font-size: clamp(32px, 5vw, 48px);
     font-weight: var(--weight-semibold);
     letter-spacing: -0.03em;
     line-height: var(--leading-tight);
@@ -271,6 +315,11 @@ main {
     transform: translateY(-2px);
 }
 
+.btn-primary:active {
+    transform: scale(0.98);
+    transition-duration: 0.1s;
+}
+
 .btn-secondary {
     border: 1px solid var(--color-border);
     color: var(--color-text-secondary);
@@ -279,6 +328,11 @@ main {
 .btn-secondary:hover {
     border-color: var(--color-text-primary);
     color: var(--color-text-primary);
+}
+
+.btn-secondary:active {
+    transform: scale(0.98);
+    transition-duration: 0.1s;
 }
 
 /* ==================== MOCKUP UI ==================== */
@@ -330,6 +384,7 @@ main {
     animation: floatUp 0.8s var(--ease-spring) forwards;
     opacity: 0;
     transform: translateY(30px);
+    will-change: transform, opacity;
 }
 
 .hero-screenshot {
@@ -457,8 +512,8 @@ main {
 }
 
 .avatar {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: 6px;
     flex-shrink: 0;
 }
@@ -579,72 +634,6 @@ main {
 
 .export-btn:hover {
     transform: scale(1.02);
-}
-
-.avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    flex-shrink: 0;
-}
-
-.user-avatar {
-    background: var(--color-action);
-}
-
-.ai-avatar {
-    background: #10A37F;
-}
-
-.bubble {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    padding-top: var(--space-1);
-    width: 100%;
-}
-
-/* Skeleton Lines - Geometric Placeholders */
-.line {
-    height: 10px;
-    background: var(--color-surface);
-    border-radius: 4px;
-}
-
-.line.short {
-    width: 40%;
-}
-
-.line.medium {
-    width: 70%;
-}
-
-.line.long {
-    width: 90%;
-}
-
-/* Interface Panel - Floating */
-.chatshell-panel {
-    position: absolute;
-    top: var(--space-6);
-    right: var(--space-6);
-    width: 180px;
-    background: #FFFFFF;
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    padding: var(--space-3);
-
-    transform: translateX(10px);
-    opacity: 0;
-    animation: revealLeft 400ms var(--ease-spring) 400ms forwards;
-}
-
-@keyframes revealLeft {
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
 }
 
 .panel-header {
@@ -801,7 +790,7 @@ main {
 }
 
 .section-title {
-    font-size: var(--text-xl);
+    font-size: clamp(24px, 3vw, 32px);
     font-weight: var(--weight-semibold);
     letter-spacing: -0.02em;
 }
@@ -827,6 +816,7 @@ main {
     border: 1px solid var(--color-border);
     border-radius: 12px;
     transition: all var(--duration-swift);
+    will-change: transform;
 }
 
 .feature-card:hover {
@@ -907,6 +897,7 @@ main {
         box-shadow var(--duration-swift) var(--ease-out),
         border-color var(--duration-swift) var(--ease-out);
     cursor: zoom-in;
+    will-change: transform;
 }
 
 .showcase-media-link:hover {
@@ -980,19 +971,6 @@ main {
     box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
 }
 
-.pricing-badge {
-    position: absolute;
-    top: calc(-1 * var(--space-3));
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--color-action);
-    color: white;
-    font-size: var(--text-xs);
-    font-weight: var(--weight-medium);
-    padding: var(--space-1) var(--space-3);
-    border-radius: 999px;
-}
-
 .pricing-name {
     font-size: var(--text-lg);
     font-weight: var(--weight-semibold);
@@ -1015,21 +993,6 @@ main {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     margin-left: var(--space-1);
-}
-
-.pricing-yearly {
-    text-align: center;
-    font-size: var(--text-sm);
-    color: var(--color-primary);
-    text-decoration: underline;
-    margin-bottom: var(--space-5);
-    display: block;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.pricing-yearly:hover {
-    opacity: 0.8;
 }
 
 .pricing-features {
@@ -1123,10 +1086,27 @@ footer {
 .footer-links a {
     margin-left: var(--space-6);
     transition: color 0.2s;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width var(--duration-swift) var(--ease-out);
 }
 
 .footer-links a:hover {
     color: var(--color-text-primary);
+}
+
+.footer-links a:hover::after,
+.footer-links a:focus-visible::after {
+    width: 100%;
 }
 
 /* ==================== LEGAL PAGES ==================== */
@@ -1215,10 +1195,6 @@ footer {
 
     .pricing-grid {
         grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 32px;
     }
 
     .nav-links {

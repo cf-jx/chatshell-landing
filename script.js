@@ -3,6 +3,15 @@
 // Clean, minimal interactions
 // ========================================
 
+// Cached DOM references
+const DOM = {
+    nav: null,
+    faqItems: null,
+    pricingToggle: null,
+    langBtn: null,
+    cnText: null
+};
+
 const translations = {
     'zh-CN': {
         nav_features: '功能',
@@ -262,6 +271,13 @@ const translations = {
 let currentLang = localStorage.getItem('chatshell-lang') || 'zh-CN';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Cache DOM elements
+    DOM.nav = document.querySelector('.glass-nav');
+    DOM.faqItems = document.querySelectorAll('.faq-question');
+    DOM.pricingToggle = document.getElementById('billing-toggle');
+    DOM.langBtn = document.getElementById('lang-toggle');
+    DOM.cnText = document.querySelector('.cn-text');
+
     initLanguageSwitch();
     initPricing();
     // Only init these on main page (check if elements exist)
@@ -310,18 +326,17 @@ function initFaqAccordion() {
 // Language Switching
 // ========================================
 function initLanguageSwitch() {
-    const langBtn = document.getElementById('lang-toggle');
-    if (!langBtn) return;
+    if (!DOM.langBtn) return;
 
     // Set initial button text based on saved language
-    langBtn.textContent = translations[currentLang].lang_btn;
+    DOM.langBtn.textContent = translations[currentLang].lang_btn;
     document.documentElement.lang = currentLang;
     updateLanguage();
 
-    langBtn.addEventListener('click', () => {
+    DOM.langBtn.addEventListener('click', () => {
         currentLang = currentLang === 'zh-CN' ? 'en' : 'zh-CN';
         localStorage.setItem('chatshell-lang', currentLang);
-        langBtn.textContent = translations[currentLang].lang_btn;
+        DOM.langBtn.textContent = translations[currentLang].lang_btn;
         updateLanguage();
         document.documentElement.lang = currentLang;
     });
@@ -352,20 +367,18 @@ function updateLanguage() {
         }
     });
 
-    const cnText = document.querySelector('.cn-text');
-    if (cnText) {
-        cnText.style.display = currentLang === 'zh-CN' ? 'inline' : 'none';
+    if (DOM.cnText) {
+        DOM.cnText.style.display = currentLang === 'zh-CN' ? 'inline' : 'none';
     }
 }
 
 function initPricing() {
-    const toggle = document.getElementById('billing-toggle');
-    if (!toggle) return;
+    if (!DOM.pricingToggle) return;
 
     const STORAGE_KEY = 'chatshell-billing';
     const saved = localStorage.getItem(STORAGE_KEY);
     const initialMode = saved === 'monthly' ? 'monthly' : 'annual';
-    toggle.checked = initialMode === 'monthly';
+    DOM.pricingToggle.checked = initialMode === 'monthly';
 
     const formatUsd = (amount) => {
         const rounded = Math.round(amount);
@@ -373,7 +386,7 @@ function initPricing() {
     };
 
     const update = () => {
-        const mode = toggle.checked ? 'monthly' : 'annual';
+        const mode = DOM.pricingToggle.checked ? 'monthly' : 'annual';
         localStorage.setItem(STORAGE_KEY, mode);
 
         const cards = document.querySelectorAll('.pricing-card[data-plan]');
@@ -412,7 +425,7 @@ function initPricing() {
         });
     };
 
-    toggle.addEventListener('change', update);
+    DOM.pricingToggle.addEventListener('change', update);
     update();
 }
 
@@ -420,16 +433,16 @@ function initPricing() {
 // Scroll Effects
 // ========================================
 function initScrollEffects() {
-    const nav = document.querySelector('.glass-nav');
+    if (!DOM.nav) return;
     let ticking = false;
 
     function updateNav() {
         const scrollY = window.scrollY;
 
         if (scrollY > 20) {
-            nav.classList.add('scrolled');
+            DOM.nav.classList.add('scrolled');
         } else {
-            nav.classList.remove('scrolled');
+            DOM.nav.classList.remove('scrolled');
         }
 
         ticking = false;

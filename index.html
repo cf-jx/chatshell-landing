@@ -17,7 +17,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
   <meta property="og:type" content="website" />
   <meta property="og:title" content="ChatShell - ChatGPT Export Tool" />
   <meta
@@ -146,7 +147,7 @@
 </head>
 
 <body>
-  <nav class="glass-nav">
+  <nav class="glass-nav" aria-label="Main navigation">
     <div class="nav-content">
       <a href="#" class="logo-container">
         <img src="assets/logo.png" alt="ChatShell Logo" class="logo" />
@@ -191,6 +192,7 @@
             alt="ChatShell exporting mathematical formulas from ChatGPT conversation"
             class="hero-screenshot"
             decoding="async"
+            loading="lazy"
           />
         </div>
       </div>
@@ -381,9 +383,9 @@
           </div>
           <div class="billing-toggle" role="group" aria-label="Billing period">
             <span class="billing-label" data-role="billing-annual">Annual</span>
-            <label class="toggle-switch">
-              <input type="checkbox" id="billing-toggle" aria-label="Toggle monthly billing">
-              <span class="toggle-slider"></span>
+            <label class="toggle-switch" aria-label="Toggle between monthly and annual billing">
+              <input type="checkbox" id="billing-toggle">
+              <span class="toggle-slider" aria-hidden="true"></span>
             </label>
             <span class="billing-label" data-role="billing-monthly">Monthly</span>
           </div>
